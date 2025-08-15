@@ -8,7 +8,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <!-- Performance hints -->
   <link rel="preconnect" href="https://cdn.pixabay.com" crossorigin>
-  <link rel="preload" as="audio" href="https://cdn.pixabay.com/download/audio/2022/04/22/audio_59d3642cc7.mp3?filename=classical-music-relaxing-instrumental-ambient-10588.mp3" />
+  
   <style>
     /* ====== THEME / RESETS ====== */
     :root {
@@ -245,6 +245,25 @@
       * { animation: none !important; transition: none !important; }
       #intro-overlay { display: none !important; }
     }
+
+    /* ====== CHAT BUBBLE (for tour) ====== */
+    .tour-chat-bubble {
+      position: fixed;
+      left: 50%;
+      top: 80px;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 224, 0.98);
+      color: #333;
+      padding: 1rem 2rem;
+      border-radius: 24px;
+      box-shadow: 0 6px 24px rgba(191,161,74,.18);
+      z-index: 9999;
+      font-weight: 700;
+      font-size: 1.15rem;
+      opacity: 0;
+      transition: opacity 0.6s, transform 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -428,8 +447,6 @@
   <div id="intro-hint">Explore sections to learn more <div id="scroll-arrow"></div></div>
 </div>
 
-<!-- Background classical music (optimized) -->
-<audio id="bg-music" loop preload="metadata" src="https://cdn.pixabay.com/download/audio/2022/04/22/audio_59d3642cc7.mp3?filename=classical-music-relaxing-instrumental-ambient-10588.mp3"></audio>
 
 <script>
   // ===== Utilities
@@ -545,10 +562,45 @@
     return "Please ask about my experience, skills, certifications, or contact info.";
   }
 
+  // ===== Section explanations for tour chat bubble =====
+  const sectionExplanations = {
+    summary: "This is a quick summary of Yogesh's SRE experience.",
+    experience: "Here are key roles and achievements in SRE and IT.",
+    certifications: "Certifications and credentials earned.",
+    skills: "Technical skills and expertise.",
+    education: "Academic background and degrees.",
+    awards: "Awards and honors received.",
+    contact: "Contact details to reach Yogesh."
+  };
+
+  function showChatBubble(text) {
+    let bubble = document.createElement('div');
+    bubble.className = 'tour-chat-bubble';
+    bubble.textContent = text;
+    bubble.style.position = 'fixed';
+    bubble.style.left = '50%';
+    bubble.style.top = '120px'; // Move lower for visibility
+    bubble.style.transform = 'translateX(-50%)';
+    bubble.style.background = 'rgba(255, 255, 224, 0.98)';
+    bubble.style.color = '#333';
+    bubble.style.padding = '1rem 2rem';
+    bubble.style.borderRadius = '24px';
+    bubble.style.boxShadow = '0 6px 24px rgba(191,161,74,.18)';
+    bubble.style.zIndex = '9999';
+    bubble.style.fontWeight = '700';
+    bubble.style.fontSize = '1.15rem';
+    bubble.style.opacity = '1';
+    document.body.appendChild(bubble);
+    setTimeout(() => {
+      bubble.style.opacity = '0';
+      setTimeout(() => bubble.remove(), 600);
+    }, 1800);
+  }
+
   // ===== Intro Overlay + Tour (from v1, with small perf tweaks)
   const introOverlay = document.getElementById('intro-overlay');
   const helpTourBtn = document.getElementById('help-tour');
-  const bgMusic = document.getElementById('bg-music');
+  // ...existing code...
 
   function playIntroSequence() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return startTour();
@@ -566,7 +618,7 @@
           introOverlay.style.display = 'none';
           startTour();
           localStorage.setItem('tourDone', 'true');
-          bgMusic.play().catch(()=>{});
+          
         }, 1200);
       }
     }
@@ -591,7 +643,8 @@
         collapsible.innerHTML = 'Hide Certifications &#x25B2;';
       }
       await scrollToSection(id);
-      await new Promise(r => setTimeout(r, 1000));
+      showChatBubble(sectionExplanations[id]);
+      await new Promise(r => setTimeout(r, 1200));
     }
   }
 
@@ -599,8 +652,7 @@
     if (!localStorage.getItem('tourDone')) {
       playIntroSequence();
     } else {
-      // attempt polite autoplay if allowed
-      bgMusic.play().catch(() => {});
+  
     }
   }, { once: true });
 
@@ -609,10 +661,7 @@
     setTimeout(playIntroSequence, 600);
   });
 
-  // User gesture-based music start (fallback)
-  document.body.addEventListener('click', () => {
-    if (bgMusic.paused) bgMusic.play().catch(() => {});
-  }, { once: true, passive: true });
+  
 
   // Double-click help button to mute/unmute
   helpTourBtn.addEventListener('dblclick', () => {
@@ -623,4 +672,3 @@
 
 </body>
 </html>
-
