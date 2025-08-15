@@ -214,12 +214,70 @@
 
     /* ====== INTRO OVERLAY + TOUR (from v1, optimized) ====== */
     #help-tour {
-      position: fixed; bottom: 20px; left: 20px; width: 42px; height: 42px;
-      background: var(--gold); color: #222; font-weight: 900; font-size: 26px; line-height: 42px; text-align: center;
-      border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px rgba(191,161,74,.85); z-index: 1500; user-select: none;
-      transition: background-color .25s ease, transform .15s ease;
+      position: fixed; bottom: 20px; left: 20px;
+      min-width: 120px; max-width: 180px; height: 52px;
+      background: var(--gold);
+      color: #222;
+      font-weight: 900;
+      font-size: 1.15rem;
+      line-height: 52px;
+      text-align: center;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 0 18px 4px rgba(255, 215, 0, 0.45), 0 0 10px rgba(191,161,74,.85);
+      z-index: 1500;
+      user-select: none;
+      transition: background-color .25s ease, transform .15s ease, box-shadow .3s;
+      animation: tourPulse 1.8s infinite, tourBounceIn 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      white-space: nowrap;
     }
-    #help-tour:hover { background-color: var(--gold-2); transform: translateY(-1px); }
+    #help-tour:hover {
+      animation: tourPulse 1.8s infinite, tourShake 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+    @keyframes tourBounceIn {
+      0% { transform: scale(0.7) translateY(40px); opacity: 0; }
+      60% { transform: scale(1.08) translateY(-8px); opacity: 1; }
+      80% { transform: scale(0.98) translateY(4px); }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    @keyframes tourShake {
+      0%, 100% { transform: translateY(0) scale(1.08); }
+      20% { transform: translateY(-4px) scale(1.08); }
+      40% { transform: translateY(4px) scale(1.08); }
+      60% { transform: translateY(-4px) scale(1.08); }
+      80% { transform: translateY(4px) scale(1.08); }
+    }
+      background-color: var(--gold-2);
+      transform: translateY(-2px) scale(1.08);
+      box-shadow: 0 0 28px 8px rgba(255, 215, 0, 0.65), 0 0 18px rgba(191,161,74,.85);
+    }
+    @keyframes tourPulse {
+      0%, 100% { box-shadow: 0 0 18px 4px rgba(255, 215, 0, 0.45), 0 0 10px rgba(191,161,74,.85); }
+      50% { box-shadow: 0 0 32px 12px rgba(255, 215, 0, 0.75), 0 0 18px rgba(191,161,74,.85); }
+    }
+    #help-tour-tooltip {
+      position: absolute;
+      left: 60px;
+      bottom: 32px;
+      background: #222;
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 1600;
+    }
+    #help-tour:hover + #help-tour-tooltip {
+      opacity: 1;
+    }
 
     #intro-overlay {
       position: fixed; inset: 0; background: linear-gradient(135deg, #1c1c1c, #4a3c19);
@@ -437,7 +495,8 @@
 </div>
 
 <!-- Help tour icon -->
-<div id="help-tour" title="Replay Website Tour">?</div>
+<div id="help-tour">Website Tour</div>
+<div id="help-tour-tooltip">Replay Website Tour</div>
 
 <!-- Intro Overlay (from v1) -->
 <div id="intro-overlay" aria-label="Website introduction" role="dialog" aria-modal="true" style="display:none;">
@@ -600,7 +659,6 @@
   // ===== Intro Overlay + Tour (from v1, with small perf tweaks)
   const introOverlay = document.getElementById('intro-overlay');
   const helpTourBtn = document.getElementById('help-tour');
-  // ...existing code...
 
   function playIntroSequence() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return startTour();
