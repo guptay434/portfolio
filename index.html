@@ -1,4 +1,4 @@
-    <style>
+<style>
     /* ====== MOBILE OPTIMIZATION ====== */
     @media (max-width: 600px) {
       body {
@@ -96,12 +96,16 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif; /* v1 font */
-      background: var(--bg);
+      background:
+        linear-gradient(120deg, #fffbe6 60%, #f9fafb 100%),
+        url('https://www.transparenttextures.com/patterns/dots.png');
       color: var(--text);
       line-height: 1.65; /* v1-ish sizing/leading */
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      background-repeat: repeat;
+      background-size: auto;
     }
     a { color: #0073e6; text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -110,46 +114,95 @@
     header {
       background: linear-gradient(90deg, var(--blue) 0%, var(--gold) 100%);
       color: #fff;
-      padding: 1.5rem 2rem;
-      text-align: center; /* v1 alignment */
+      padding: 0.3rem 0.7rem;
+      text-align: center;
       position: sticky;
       top: 0;
       z-index: 100;
       box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      width: 100%;
+      min-width: 260px;
+      margin: 0 auto;
+      border-radius: 0 0 32px 32px;
+      min-height: unset;
+      max-height: 10vh;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
     }
     header h1 {
       margin: 0 0 0.3rem;
       text-align: center;
       font-weight: 700;
       letter-spacing: 0.07em; /* v1 detail */
+      font-size: 1.15rem;
+      line-height: 1.1;
     }
     header p {
       margin: 0;
       text-align: center;
       font-weight: 300;
-      font-size: 1rem; /* v1 size */
+      font-size: 0.85rem; /* v1 size */
       letter-spacing: 0.05em;
+      line-height: 1.1;
     }
-    nav { margin-top: 0.7rem; }
+    nav { margin-top: 0.2rem; }
     nav a {
-      margin: 0 1rem;
+      margin: 0 0.1rem;
       font-weight: 600;
-      font-size: 0.95rem; /* slightly larger per v1 */
-      letter-spacing: 0.04em;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
     }
-    nav a:hover { color: var(--gold-2); }
+    nav a:hover {
+      color: var(--gold-2);
+      background: rgba(255,255,255,0.18);
+    }
+    #main-nav {
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+      scrollbar-color: #bfa14a #004080;
+    }
+    #main-nav::-webkit-scrollbar {
+      height: 4px;
+      background: #004080;
+    }
+    #main-nav::-webkit-scrollbar-thumb {
+      background: #bfa14a;
+      border-radius: 4px;
+    }
+
+    /* Hamburger menu for mobile */
+    @media (max-width: 600px) {
+      #main-nav a { display: none; }
+      #nav-toggle { display: inline-block !important; }
+    }
 
     /* ====== LAYOUT ====== */
     main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+
     section {
       margin-bottom: 3rem;
-      background: var(--card);
-      border-radius: 10px; /* slightly larger radius */
-      box-shadow: var(--shadow);
+      background: rgba(255,255,255,0.65);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(60,60,100,0.12), 0 1.5px 0.5px rgba(191,161,74,0.08);
       padding: 1.6rem 2rem;
-      transition: box-shadow 0.3s ease;
+      transition: box-shadow 0.3s ease, backdrop-filter 0.3s;
+      backdrop-filter: blur(14px) saturate(1.2);
+      -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      border: 1.5px solid rgba(200,200,220,0.18);
     }
-    section:hover { box-shadow: var(--shadow-hover); }
+    section:hover {
+      box-shadow: 0 12px 40px rgba(60,60,100,0.18), 0 2px 1px rgba(191,161,74,0.12);
+      backdrop-filter: blur(18px) saturate(1.3);
+      -webkit-backdrop-filter: blur(18px) saturate(1.3);
+    }
 
     h2 {
       border-bottom: 2px solid var(--blue);
@@ -405,32 +458,68 @@
       transition: opacity 0.6s, transform 0.5s cubic-bezier(.68,-0.55,.27,1.55);
       pointer-events: none;
     }
+
+    .tight-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #bfa14a;
+      letter-spacing: 0.07em;
+      line-height: 1.1;
+      margin: 0;
+      padding: 0;
+      text-shadow: 0 0 8px rgba(191, 161, 74, 0.45);
+      font-family: 'Georgia', serif;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Yogesh Gupta</h1>
-  <p>Site Reliability Engineering Manager</p>
-  <nav>
-    <a href="#summary">Summary</a>
-    <a href="#experience">Experience</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#awards">Awards</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header id="creative-header">
+  <div class="ribbon-pill">
+    <div class="ribbon-content">
+      <h1 class="ribbon-name">
+        <a href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">Yogesh Gupta</a>
+      </h1>
+      <!-- Title removed for more space -->
+      <div class="ribbon-underline"></div>
+      <nav class="ribbon-nav desktop-nav">
+        <a href="#summary" title="Summary" class="nav-btn"><span class="nav-icon">&#128196;</span> <span class="nav-text">Summary</span></a>
+        <a href="#experience" title="Experience" class="nav-btn"><span class="nav-icon">&#128188;</span> <span class="nav-text">Experience</span></a>
+        <a href="#certifications" title="Certifications" class="nav-btn"><span class="nav-icon">&#127891;</span> <span class="nav-text">Certifications</span></a>
+        <a href="#skills" title="Skills" class="nav-btn"><span class="nav-icon">&#9881;&#65039;</span> <span class="nav-text">Skills</span></a>
+        <a href="#education" title="Education" class="nav-btn"><span class="nav-icon">&#128218;</span> <span class="nav-text">Education</span></a>
+        <a href="#awards" title="Awards" class="nav-btn"><span class="nav-icon">&#127942;</span> <span class="nav-text">Awards</span></a>
+        <a href="#contact" title="Contact" class="nav-btn"><span class="nav-icon">&#128241;</span> <span class="nav-text">Contact</span></a>
+      </nav>
+    </div>
+  </div>
+  <div id="nav-overlay" class="nav-overlay" style="display:none;">
+    <nav class="overlay-nav">
+      <a href="#summary" title="Summary" class="nav-btn">&#128196; Summary</a>
+      <a href="#experience" title="Experience" class="nav-btn">&#128188; Experience</a>
+      <a href="#certifications" title="Certifications" class="nav-btn">&#127891; Certifications</a>
+      <a href="#skills" title="Skills" class="nav-btn">&#9881;&#65039; Skills</a>
+      <a href="#education" title="Education" class="nav-btn">&#128218; Education</a>
+      <a href="#awards" title="Awards" class="nav-btn">&#127942; Awards</a>
+      <a href="#contact" title="Contact" class="nav-btn">&#128241; Contact</a>
+    </nav>
+  </div>
 </header>
+<button id="floating-hamburger" aria-label="Open menu" class="floating-hamburger fancy-hamburger">&#9776;</button>
 
-<main>
-  <section id="summary">
-    <h2>Summary</h2>
+<main class="creative-main">
+  <section id="summary" class="creative-card fade-in">
+    <div class="section-header tight-header">
+      <span class="section-accent tight-accent">&#128196;</span><span class="tight-title">Summary</span>
+    </div>
+    <hr class="tight-underline" />
     <p>Experienced strategic Site Reliability Engineering Manager demonstrated through leading cloud infrastructure initiatives at EITC "Du" and HCL Technologies. Expertise in designing, implementing, and managing multi-cloud environments (AWS, Azure, Oracle Cloud, VMware, Nutanix) with a focus on automation, security, and operational excellence. Skilled in DevOps/SRE practices, CI/CD pipelines, Kubernetes, and cloud services automation.</p>
   </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
+  <section id="experience" class="creative-card fade-in">
+    <div class="section-header tight-header">
+      <span class="section-accent tight-accent">&#128188;</span><span class="tight-title">Experience</span>
+    </div>
+    <hr class="tight-underline" />
     <div class="job">
       <div class="job-title">Site Reliability Engineering Manager</div>
       <div class="job-company">Du | Dubai, UAE</div>
@@ -475,8 +564,11 @@
     </div>
   </section>
 
-  <section id="certifications">
-    <h2>Certifications</h2>
+  <section id="certifications" class="creative-card fade-in">
+    <div class="section-header tight-header">
+      <span class="section-accent tight-accent">&#127891;</span><span class="tight-title">Certifications</span>
+    </div>
+    <hr class="tight-underline" />
     <div class="collapsible">Show / Hide Certifications &#x25BC;</div>
     <div class="content">
       <ul>
@@ -496,8 +588,11 @@
     </div>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
+  <section id="skills" class="creative-card fade-in">
+    <div class="section-header tight-header">
+      <span class="section-accent tight-accent">&#9881;&#65039;</span><span class="tight-title">Skills</span>
+    </div>
+    <hr class="tight-underline" />
     <ul class="skills-list">
       <li>AWS</li>
       <li>Azure</li>
@@ -520,14 +615,20 @@
     </ul>
   </section>
 
-  <section id="education">
-    <h2>Education</h2>
+  <section id="education" class="creative-card fade-in">
+    <div class="section-header tight-header">
+      <span class="section-accent tight-accent">&#128218;</span><span class="tight-title">Education</span>
+    </div>
+    <hr class="tight-underline" />
     <p><strong>Bachelor of Engineering</strong> | University of Pune | 06/2016 to 07/2019 | 75.33%</p>
     <p><strong>Diploma</strong> | KVN Naik Polytechnic | 06/2013 to 06/2016 | 83.82%</p>
   </section>
 
-  <section id="awards">
-    <h2>Awards & Honors</h2>
+  <section id="awards" class="creative-card fade-in">
+    <div class="section-header tight-header">
+      <span class="section-accent tight-accent">&#127942;</span><span class="tight-title">Awards & Honors</span>
+    </div>
+    <hr class="tight-underline" />
     <ul>
       <li>Leadership Recognition – du (EITC), 2024: For leading the initial design and architecture of GCC’s first NVIDIA Supercluster showcased at GITEX 2024.</li>
       <li>MVP Employee Award at du (EITC): Successfully managing operations for 50+ customers including Dubai government entities.</li>
@@ -536,8 +637,11 @@
     </ul>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
+  <section id="contact" class="creative-card fade-in">
+    <div class="section-header tight-header">
+      <span class="section-accent tight-accent">&#128241;</span><span class="tight-title">Contact</span>
+    </div>
+    <hr class="tight-underline" />
     <p>Email: <a href="mailto:guptay434@gmail.com">guptay434@gmail.com</a></p>
     <p>Phone/WhatsApp: <a href="tel:+971559532001">+971 55 953 2001</a></p>
   </section>
@@ -809,6 +913,42 @@
     bgMusic.muted = !bgMusic.muted;
     alert(bgMusic.muted ? 'Background music muted.' : 'Background music unmuted.');
   });
+
+  // Hamburger menu logic
+const hamburger = document.getElementById('hamburger');
+const navOverlay = document.getElementById('nav-overlay');
+if (hamburger && navOverlay) {
+  hamburger.addEventListener('click', () => {
+    navOverlay.style.display = navOverlay.style.display === 'flex' ? 'none' : 'flex';
+  });
+  navOverlay.addEventListener('click', (e) => {
+    if (e.target === navOverlay) navOverlay.style.display = 'none';
+  });
+}
+
+// Animated reveal for cards on scroll
+const cards = document.querySelectorAll('.creative-card');
+const revealOnScroll = () => {
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      card.classList.add('fade-in');
+    }
+  });
+};
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// Floating hamburger menu logic
+const floatingHamburger = document.getElementById('floating-hamburger');
+if (floatingHamburger && navOverlay) {
+  floatingHamburger.addEventListener('click', () => {
+    navOverlay.style.display = navOverlay.style.display === 'flex' ? 'none' : 'flex';
+  });
+  navOverlay.addEventListener('click', (e) => {
+    if (e.target === navOverlay) navOverlay.style.display = 'none';
+  });
+}
 </script>
 
 </body>
