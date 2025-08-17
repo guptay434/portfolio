@@ -3,694 +3,691 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Yogesh Gupta — Strategic Site Reliability Engineering Manager specializing in multi‑cloud infrastructure, DevOps/SRE, and AI‑driven cloud innovation." />
-  <title>Yogesh Gupta | SRE Leadership Portfolio</title>
+  <meta name="description" content="Portfolio of Yogesh Gupta — Strategic Site Reliability Engineering Manager specializing in multi‑cloud, DevOps/SRE, and AI-driven cloud innovation." />
+  <title>Yogesh Gupta • SRE Leadership Portfolio</title>
 
-  <!--
-    ✅ Pure HTML/CSS/JS (no frameworks)
-    ✅ Semantic HTML5 + Accessible + Mobile-First
-    ✅ Light/Dark Mode Toggle (with system preference + persistence)
-    ✅ Smooth scrolling + subtle animations
-    ✅ Responsive Grid/Flex layouts
-    ✅ Interactive: timeline, project cards (glass), metric charts, copy-to-clipboard
-    ✅ Ready to run in VS Code (single file). Place your PDF at ./assets/Yogesh_Gupta_Resume.pdf
-  -->
+  <!-- Accessible, luxury-inspired typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ========== CSS RESET (minimal, accessible) ========== */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    img { max-width: 100%; height: auto; display: block; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-
-    /* ========== THEME TOKENS ========== */
     :root {
-      --bg: #0b1020;
-      --bg-elev: #111733;
-      --text: #e7eaf6;
-      --muted: #b7bfd6;
-      --brand: #7cc4ff;         /* accent */
-      --brand-2: #9b8cfe;       /* secondary accent */
-      --ok: #3ad29f;
-      --warn: #ffcc66;
-      --danger: #ff7a7a;
-      --card-glass: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      /* Color system */
+      --bg: #0e0f12;
+      --card: rgba(255,255,255,0.06);
+      --text: #e6e6e9;
+      --muted: #a6a8ad;
+      --accent: #d4af37;           /* Gold */
+      --accent-2: #f6e27a;         /* Light gold for gradients */
+      --link: #9ecbff;
+      --success: #4ade80;
+      --warning: #fbbf24;
+      --danger: #fb7185;
+
+      /* Light mode defaults will be swapped via .light */
+      --surface: rgba(255,255,255,0.5);
+
       --radius: 16px;
       --radius-lg: 22px;
-      --grid-gap: clamp(16px, 3vw, 28px);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+
       --maxw: 1200px;
-      --font-title: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      --font-body: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans";
     }
 
-    /* Light mode tokens */
+    /* Light theme overrides */
     :root.light {
-      --bg: #f7f9fc;
-      --bg-elev: #ffffff;
-      --text: #0e1222;
-      --muted: #53607a;
-      --brand: #1460f2;
-      --brand-2: #7a3df1;
-      --card-glass: rgba(0,0,0,0.05);
-      --border: rgba(0,0,0,0.12);
-      --shadow: 0 10px 30px rgba(19, 33, 68, 0.12);
+      --bg: #fafafa;
+      --card: rgba(5, 7, 12, 0.06);
+      --text: #121316;
+      --muted: #3f4249;
+      --link: #0a66c2;
+      --surface: rgba(255,255,255,0.7);
+      --shadow: 0 10px 24px rgba(0,0,0,0.15);
     }
 
+    /* Reset & base */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      background: radial-gradient(1200px 600px at 80% -10%, rgba(124,196,255,0.10), transparent 60%),
-                  radial-gradient(1000px 500px at -10% -20%, rgba(155,140,254,0.10), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
+      margin: 0; background: radial-gradient(1200px 800px at 80% -10%, rgba(212,175,55,0.08), transparent 60%),
+      radial-gradient(900px 600px at 10% 110%, rgba(246,226,122,0.08), transparent 60%), var(--bg);
+      color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
 
-    /* Skip link for accessibility */
-    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus { position: fixed; left: 1rem; top: 1rem; width:auto; height:auto; padding:.6rem 1rem; background: var(--brand); color:#fff; border-radius:10px; z-index:9999; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    /* ========== GLOBAL WRAPPERS ========== */
-    .container { width: min(92%, var(--maxw)); margin-inline: auto; }
-    section { padding: clamp(48px, 8vw, 96px) 0; }
-    .section-title { font-family: var(--font-title); font-weight: 800; letter-spacing:.2px; font-size: clamp(1.4rem, 2.5vw, 2rem); margin: 0 0 1rem; }
-    .section-sub { color: var(--muted); margin: 0 0 2rem; max-width: 75ch; }
+    .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 1.2rem; }
 
-    /* ========== NAVBAR ========== */
+    /* App bar */
     header {
-      position: sticky; top: 0; z-index: 1000;
-      backdrop-filter: saturate(140%) blur(8px);
-      background: linear-gradient(180deg, rgba(15,20,42,0.8), rgba(15,20,42,0.35));
-      border-bottom: 1px solid var(--border);
-    }
-    :root.light header { background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.55)); }
-    .nav { display:flex; align-items:center; justify-content:space-between; gap: 1rem; padding: .8rem 0; }
-    .brand { display:flex; align-items:center; gap:.75rem; }
-    .brand .logo { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: var(--shadow); }
-    .brand h1 { font-size: 1rem; margin:0; letter-spacing:.3px; font-weight:800; }
-
-    .nav-links { display:flex; gap: clamp(.4rem, 1.5vw, 1rem); flex-wrap: wrap; }
-    .nav-links a { padding:.5rem .8rem; border-radius: 999px; color: var(--text); border:1px solid transparent; }
-    .nav-links a:hover, .nav-links a:focus { border-color: var(--border); background: var(--card-glass); }
-
-    .mode-toggle { display:flex; align-items:center; gap:.5rem; }
-    .toggle { position: relative; width: 56px; height: 30px; border-radius: 999px; background: var(--card-glass); border:1px solid var(--border); cursor:pointer; }
-    .toggle .knob { position:absolute; top:3px; left:3px; width:24px; height:24px; border-radius:50%; background: linear-gradient(135deg, var(--brand), var(--brand-2)); transition: transform .3s ease; }
-    .toggle.active .knob { transform: translateX(26px); }
-
-    /* ========== HERO ========== */
-    .hero { display:grid; grid-template-columns: 1fr; align-items:center; gap: 2rem; padding-top: clamp(40px, 6vw, 80px); }
-    .hero-card {
-      background: linear-gradient(180deg, rgba(124,196,255,0.08), rgba(155,140,254,0.08));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: clamp(20px, 4vw, 36px);
+      position: sticky; top: 0; z-index: 1000; backdrop-filter: saturate(140%) blur(10px);
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.00));
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
     }
-    .hero-card::after { /* subtle moving sheen */
-      content: ""; position:absolute; inset:-20%; background: conic-gradient(from 120deg at 30% 20%, rgba(255,255,255,0.12), transparent 40%);
-      animation: rotateSheen 14s linear infinite;
-      z-index: -1;
+    :root.light header { background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2)); }
+
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; padding: .75rem 1rem;
     }
-    @keyframes rotateSheen { to { transform: rotate(360deg); } }
+    .brand {
+      display: flex; align-items: baseline; gap: .5rem; font-weight: 800; letter-spacing: .3px;
+    }
+    .brand .dot { color: var(--accent); }
+    .brand small { font-weight: 500; color: var(--muted); }
 
-    .hero-title { font-family: var(--font-title); font-size: clamp(1.6rem, 4.5vw, 3rem); margin:.2rem 0; line-height:1.2; }
-    .hero-sub { font-size: clamp(1rem, 2.2vw, 1.25rem); color: var(--muted); margin: .6rem 0 1rem; }
-    .hero-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0 1.2rem; }
-    .chip { padding:.35rem .7rem; border-radius:999px; border:1px solid var(--border); background: var(--card-glass); font-size:.9rem; }
+    nav ul { list-style: none; display: flex; gap: 1rem; padding: 0; margin: 0; }
+    nav a { font-weight: 600; padding: .5rem .75rem; border-radius: 999px; }
+    nav a:hover { background: var(--card); text-decoration: none; }
 
-    .cta-row { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
-    .btn { display:inline-flex; align-items:center; gap:.55rem; padding:.7rem 1rem; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-elev); box-shadow: var(--shadow); cursor:pointer; }
-    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#fff; border-color: transparent; }
-    .btn:hover { transform: translateY(-1px); }
+    /* Hamburger */
+    .menu-btn { display: none; background: transparent; border: 0; color: var(--text); font-size: 1.6rem; cursor: pointer; }
+    .menu { display: flex; }
 
-    .contact-inline { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:.6rem; color: var(--muted); }
-    .contact-inline a { border-bottom: 1px dashed var(--border); }
+    @media (max-width: 900px) {
+      .menu-btn { display: inline-flex; }
+      .menu { display: none; position: absolute; right: 1rem; top: 64px; flex-direction: column; background: var(--surface); backdrop-filter: blur(8px);
+        border-radius: var(--radius); box-shadow: var(--shadow); padding: .5rem; }
+      .menu a { display: block; padding: .7rem 1rem; }
+      .menu.open { display: flex; }
+    }
 
-    /* ========== ABOUT ========== */
-    .about-grid { display:grid; grid-template-columns: 1fr; gap: var(--grid-gap); }
-    @media (min-width: 860px) { .about-grid { grid-template-columns: 1.2fr .8fr; } }
+    /* Hero */
+    .hero { position: relative; padding: 6rem 0 4rem; overflow: clip; }
+    .hero .container { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 
-    .card { background: var(--card-glass); border:1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 2.5vw, 22px); box-shadow: var(--shadow); }
-    .list { display:grid; gap:.6rem; padding-left:1.2rem; }
-    .list li { margin-left:.2rem; }
+    .badge {
+      display: inline-flex; align-items: center; gap: .5rem; font-size: .85rem; padding: .35rem .7rem; border-radius: 999px; border: 1px solid rgba(212,175,55,.35);
+      background: linear-gradient(135deg, rgba(212,175,55,.18), rgba(255,255,255,.02)); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 6px 18px rgba(0,0,0,.2);
+    }
+    .title { font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: .3px; line-height: 1.12; font-size: clamp(2rem, 6vw, 3.25rem); margin: .6rem 0; }
+    .subtitle { color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.2rem); }
 
-    /* ========== EXPERIENCE / TIMELINE ========== */
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.2rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(255,255,255,.15); padding: .7rem 1rem; border-radius: 12px; font-weight: 700; cursor: pointer;
+      background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(212,175,55,.7); background: linear-gradient(135deg, rgba(212,175,55,.22), rgba(255,255,255,.06)); }
+    .btn.gold { border: 1px solid rgba(212,175,55,.8); background: linear-gradient(135deg, rgba(212,175,55,.85), rgba(246,226,122,.45)); color: #1b1b1b; }
+    .btn.gold:hover { filter: brightness(1.05); }
+
+    /* Glass reflection utility */
+    .glass { position: relative; background: var(--card); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(10px) saturate(125%);
+      box-shadow: var(--shadow); }
+    .glass::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; background:
+      linear-gradient(130deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 40%),
+      linear-gradient(180deg, rgba(212,175,55,.18), rgba(255,255,255,0) 60%);
+      mask: linear-gradient(180deg, rgba(0,0,0,.7), transparent 45%);
+      pointer-events: none; }
+
+    /* Section */
+    section { padding: 3.5rem 0; }
+    section .sec-head { display: flex; align-items: baseline; gap: .75rem; margin-bottom: 1.6rem; }
+    .sec-head h2 { margin: 0; font-size: clamp(1.3rem, 4vw, 1.8rem); }
+    .sec-head .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); opacity: .6; border-radius: 999px; }
+
+    /* Grid helpers */
+    .grid { display: grid; gap: 1rem; }
+    @media (min-width: 760px) { .grid.cols-2 { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 980px) { .grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+
+    /* About */
+    .about p { margin: 0 0 1rem; }
+
+    /* Experience timeline */
     .timeline { position: relative; margin-left: .75rem; }
-    .timeline::before { content: ""; position:absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--brand), var(--brand-2)); border-radius: 2px; }
-    .timeline-item { position: relative; padding-left: 2.6rem; margin-bottom: 1.4rem; }
-    .timeline-item::before { content: ""; position:absolute; left:0; top:.2rem; width: 22px; height: 22px; border-radius: 50%; background: var(--bg-elev); border:2px solid var(--brand); box-shadow: var(--shadow); }
-    .role { font-weight: 800; }
-    .meta { color: var(--muted); font-size:.95rem; }
-    .exp-highlights { display:grid; gap:.4rem; margin-top:.6rem; }
+    .timeline::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent), transparent); }
+    .tl-item { position: relative; padding-left: 2.5rem; margin: 1rem 0; }
+    .tl-item::before { content: ""; position: absolute; left: 2px; top: .6rem; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent)); box-shadow: 0 0 0 4px rgba(212,175,55,.15); }
+    .tl-card { padding: 1rem; border-radius: var(--radius); }
+    .tl-card h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+    .tl-meta { color: var(--muted); font-size: .9rem; margin-bottom: .4rem; }
+    .pill { display: inline-block; padding: .25rem .5rem; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; font-size: .75rem; margin-right: .35rem; background: rgba(255,255,255,.06); }
 
-    /* ========== PROJECTS (glass cards + hover tilt) ========== */
-    .projects-grid { display:grid; grid-template-columns: 1fr; gap: var(--grid-gap); }
-    @media (min-width: 680px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1040px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
-    .project-card { position:relative; padding: 18px; border-radius: var(--radius); border:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)); box-shadow: var(--shadow); overflow:hidden; transform-style: preserve-3d; transition: transform .2s ease; }
-    .project-card::after { content:""; position:absolute; inset:-50% -10% auto -10%; height: 120px; background: radial-gradient(200px 60px at 30% 50%, rgba(255,255,255,0.25), transparent 60%); transform: translateZ(40px); opacity:0; transition: opacity .3s ease; }
-    .project-card:hover::after { opacity:.9; }
-    .badge { display:inline-block; padding:.25rem .55rem; border-radius:999px; border:1px solid var(--border); margin:.2rem .3rem .2rem 0; font-size:.85rem; background: var(--card-glass); }
+    /* Project cards */
+    .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1100px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+    .card { position: relative; overflow: hidden; padding: 1rem; min-height: 220px; }
+    .card h3 { margin-top: .4rem; }
+    .shine { position: absolute; inset: 0; background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.28) 25%, transparent 50%); transform: translateX(-100%); }
+    .card:hover .shine { animation: sweep 900ms ease; }
+    @keyframes sweep { to { transform: translateX(100%); } }
 
-    /* ========== SKILLS GRID ========== */
-    .skills-grid { display:grid; grid-template-columns: 1fr; gap: var(--grid-gap); }
-    @media (min-width: 860px) { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
-    .skill-card h4 { margin:.2rem 0 .6rem; font-size:1.05rem; }
-    .chips { display:flex; flex-wrap:wrap; gap:.4rem; }
+    /* Skills */
+    .skills { display: grid; gap: .8rem; }
+    @media (min-width: 900px) { .skills { grid-template-columns: repeat(3, 1fr); } }
+    .skill-box { padding: 1rem; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: .5rem; }
 
-    /* ========== CERTIFICATIONS (categorized) ========== */
-    .certs { display:grid; grid-template-columns: 1fr; gap: var(--grid-gap); }
-    @media (min-width: 900px) { .certs { grid-template-columns: repeat(2, 1fr); } }
-    .cert-list { display:grid; gap:.4rem; }
+    /* Certifications */
+    .certs { display: grid; gap: 1rem; }
+    @media (min-width: 980px) { .certs { grid-template-columns: repeat(3, 1fr); } }
 
-    /* ========== METRICS (inline SVG charts) ========== */
-    .metrics { display:grid; grid-template-columns: 1fr; gap: var(--grid-gap); align-items: center; }
-    @media (min-width: 980px) { .metrics { grid-template-columns: 1.2fr .8fr; } }
-    .chart { background: var(--card-glass); border:1px solid var(--border); border-radius: var(--radius); padding:16px; box-shadow: var(--shadow); }
-    .chart svg { width: 100%; height: auto; }
+    /* Impact Snapshot (charts) */
+    .impact { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .impact { grid-template-columns: repeat(3, 1fr); } }
+    .donut { width: 140px; height: 140px; display: block; margin: .25rem auto; }
+    .impact .metric { text-align: center; }
+    .impact .metric b { font-size: 1.8rem; letter-spacing: .5px; }
 
-    /* ========== CONTACT ========== */
-    .contact { display:grid; grid-template-columns: 1fr; gap: var(--grid-gap); align-items:center; }
-    @media (min-width: 860px) { .contact { grid-template-columns: 1fr 1fr; } }
-    .contact-cta { display:flex; flex-wrap:wrap; gap:.8rem; }
-    .contact-card { position:relative; overflow:hidden; }
-    .contact-card::after { content:""; position:absolute; inset:-40%; background: radial-gradient(400px 150px at 20% 20%, rgba(124,196,255,0.18), transparent 60%), radial-gradient(300px 120px at 80% 10%, rgba(155,140,254,0.18), transparent 60%); animation: float 16s ease-in-out infinite alternate; }
-    @keyframes float { to { transform: translateY(12px); } }
+    /* Education */
+    .edu { display: grid; gap: 1rem; }
+    @media (min-width: 760px) { .edu { grid-template-columns: 1fr 1fr; } }
 
-    /* ========== FOOTER ========== */
-    footer { padding: 24px 0 40px; color: var(--muted); text-align:center; }
+    /* Contact */
+    .contact .cta { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 760px) { .contact .cta { grid-template-columns: 1.2fr .8fr; } }
 
-    /* ========== UTILITIES ========== */
-    .grid-2 { display:grid; grid-template-columns: 1fr; gap: var(--grid-gap); }
-    @media (min-width: 860px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+    .pulse { position: relative; }
+    .pulse::before { content: ""; position: absolute; inset: -6px; border-radius: 20px; border: 2px solid rgba(212,175,55,.6); animation: pulse 2.2s ease-in-out infinite; }
+    @keyframes pulse { 0%{opacity: .45; transform: scale(.98);} 70%{opacity: 0; transform: scale(1.15);} 100%{opacity: 0;} }
 
-    .muted { color: var(--muted); }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
-    .nowrap { white-space: nowrap; }
+    /* Fade-ins on scroll */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ========== REVEAL ANIMATIONS ========== */
-    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.in { opacity: 1; transform: translateY(0); }
+    /* Accessibility helpers */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* Footer */
+    footer { padding: 2.2rem 0; color: var(--muted); text-align: center; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <!-- ================= NAVBAR ================= -->
-  <header aria-label="Primary">
+  <!-- HEADER / NAVIGATION -->
+  <header role="banner" aria-label="Primary">
     <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <h1>Yogesh Gupta</h1>
+      <div class="brand" aria-label="Brand">
+        <span>Yogesh&nbsp;Gupta</span><span class="dot">•</span><small>SRE Leadership</small>
       </div>
-      <nav class="nav-links" aria-label="Site">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Strategic Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#certs">Certifications</a>
-        <a href="#awards">Awards</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">☰</button>
+
+      <nav aria-label="Main">
+        <ul id="navMenu" class="menu" role="menubar">
+          <li role="none"><a role="menuitem" href="#hero">Home</a></li>
+          <li role="none"><a role="menuitem" href="#about">About</a></li>
+          <li role="none"><a role="menuitem" href="#experience">Experience</a></li>
+          <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
+          <li role="none"><a role="menuitem" href="#impact">Impact</a></li>
+          <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
+          <li role="none"><a role="menuitem" href="#certs">Certifications</a></li>
+          <li role="none"><a role="menuitem" href="#awards">Awards</a></li>
+          <li role="none"><a role="menuitem" href="#education">Education</a></li>
+          <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+        </ul>
       </nav>
-      <div class="mode-toggle" aria-label="Theme toggle">
-        <span class="muted" aria-hidden="true">🌙</span>
-        <div class="toggle" id="themeToggle" role="switch" aria-checked="false" tabindex="0"><div class="knob"></div></div>
-        <span class="muted" aria-hidden="true">☀️</span>
-      </div>
+
+      <!-- Theme toggle -->
+      <button id="themeToggle" class="btn" aria-pressed="false" aria-label="Toggle dark/light mode">🌗 Theme</button>
     </div>
   </header>
 
-  <main id="main">
-    <!-- ================= HERO ================= -->
-    <section class="container hero" id="hero" aria-label="Hero">
-      <div class="hero-card reveal">
-        <p class="chip mono">Strategic Site Reliability Engineering Manager</p>
-        <h2 class="hero-title">Building sovereign cloud, AI‑ready datacenters, and resilient platforms at enterprise scale.</h2>
-        <p class="hero-sub">Multi‑cloud architecture • DevOps/SRE • Observability • FinOps • Security by design</p>
-        <div class="hero-tags">
-          <span class="chip">AWS</span>
-          <span class="chip">Azure</span>
-          <span class="chip">Oracle Cloud (Alloy)</span>
-          <span class="chip">Kubernetes</span>
-          <span class="chip">Terraform</span>
-          <span class="chip">NVIDIA Supercluster</span>
-          <span class="chip">5G / Edge</span>
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="glass reveal" style="padding:1.25rem">
+        <span class="badge">Strategic Site Reliability Engineering Manager</span>
+        <h1 class="title">Designing Sovereign Clouds & AI‑Ready Infrastructure</h1>
+        <p class="subtitle">Multi‑cloud architecture • DevOps/SRE automation • Telecom‑grade reliability • FinOps • Security‑by‑design</p>
+
+        <div class="actions">
+          <a class="btn gold pulse" href="#contact" aria-label="Jump to contact">Let’s Connect</a>
+          <a class="btn" href="assets/Yogesh_Gupta_Resume.pdf" download>⬇️ Download Resume</a>
+          <a class="btn" href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener">in/ LinkedIn</a>
         </div>
-        <div class="cta-row" role="group" aria-label="Primary actions">
-          <a class="btn primary" href="assets/Yogesh_Gupta_Resume.pdf" download aria-label="Download Resume PDF">⬇️ Download Resume</a>
-          <a class="btn" href="#contact" aria-label="Jump to contact options">Contact</a>
-          <a class="btn" href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener" aria-label="Open LinkedIn profile">LinkedIn</a>
-        </div>
-        <div class="contact-inline" aria-label="Quick contacts">
-          <a class="mono" href="tel:+971559532001">+971 55 953 2001</a> •
-          <a class="mono" href="mailto:guptay434@gmail.com">guptay434@gmail.com</a>
+
+        <div style="margin-top:1rem; color:var(--muted); font-size:.95rem; display:flex; flex-wrap:wrap; gap:.8rem">
+          <span class="pill">Dubai, UAE</span>
+          <span class="pill">+971 55 953 2001</span>
+          <span class="pill">guptay434@gmail.com</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= ABOUT ================= -->
-    <section class="container" id="about" aria-label="About Yogesh">
-      <h3 class="section-title">About Me</h3>
-      <p class="section-sub">I lead high‑impact cloud programs that blend reliability engineering with product thinking. I’ve launched sovereign cloud capabilities, architected AI‑ready infrastructure, and scaled fintech platforms — aligning engineering execution with C‑level strategy, risk, and compliance.</p>
-      <div class="about-grid">
-        <article class="card reveal" aria-label="Leadership Summary">
-          <h4>Leadership Focus</h4>
-          <ul class="list">
-            <li>Directed cross‑functional teams of <strong>40+ engineers</strong> to deliver mission‑critical platforms.</li>
-            <li>Launched UAE’s first <strong>sovereign hyperscale cloud (Oracle Alloy)</strong> — security & data residency by design.</li>
-            <li>Architected GCC’s first <strong>NVIDIA Supercluster</strong> (5+ MW AI capacity) showcased at GITEX.</li>
-            <li>Delivered <strong>du Pay</strong> launch with HA & DR baked into the platform.</li>
-            <li>Drove <strong>FinOps</strong> programs cutting cloud spend by <strong>15–20%</strong> without performance trade‑offs.</li>
-          </ul>
-        </article>
-        <aside class="card reveal" aria-label="Snapshot Metrics">
-          <h4>Impact Snapshot</h4>
-          <ul class="list">
-            <li><strong>25%</strong> downtime reduction via auto‑healing infra and scalable architectures.</li>
-            <li><strong>15%</strong> faster incident resolution with integrated observability (Prometheus, Grafana, ELK).</li>
-            <li><strong>$10M</strong> in programs: DC consolidation, cloud migration, network upgrades.</li>
-            <li><strong>99.99%</strong> uptime in NOC/SOC operations (earlier role).</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ================= EXPERIENCE / TIMELINE ================= -->
-    <section class="container" id="experience" aria-label="Experience">
-      <h3 class="section-title">Experience</h3>
-      <p class="section-sub">Enterprise programs across telecom, energy, and consumer — focusing on reliability, cost, and scale.</p>
-
-      <div class="timeline" aria-label="Career timeline">
-        <div class="timeline-item reveal">
-          <div class="role">Site Reliability Engineering Manager — du (EITC)</div>
-          <div class="meta">Dubai, UAE • Mar 2024 – Present</div>
-          <div class="exp-highlights">
-            <div>• Core team for UAE’s first <strong>sovereign cloud</strong> using <strong>Oracle Alloy</strong> (launch target: Jul 2025).</div>
-            <div>• Deployed GCC’s first <strong>NVIDIA Supercluster</strong> with AIHostingHub at Dubai Nautilus (5+ MW).</div>
-            <div>• <strong>du Pay</strong> launch: security, scalability, and DR across multi‑region infrastructure.</div>
-            <div>• <strong>25%</strong> downtime reduction via auto‑healing (ASG, VMSS, K8s HPA) and <strong>15%</strong> faster MTTR through observability.</div>
-            <div>• <strong>15%</strong> cloud cost savings via FinOps; drove $10M infra programs; showcased AI DC at GITEX 2024.</div>
-          </div>
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="sec-head"><h2>About Me</h2><div class="line"></div></div>
+      <div class="grid cols-2">
+        <div class="glass reveal" style="padding:1rem">
+          <p><strong>Yogesh Gupta</strong> is a strategic SRE leader with a track record building <em>sovereign hyperscale cloud</em> platforms, AI‑ready datacenters, and regulated fintech infrastructure. He blends enterprise program leadership with deep hands‑on engineering across AWS, Azure, Oracle Cloud, VMware, and Nutanix.</p>
+          <p>Recent highlights include core leadership for the UAE’s first sovereign cloud (Oracle Alloy), deployment of the GCC’s first <strong>NVIDIA Supercluster</strong> (5+ MW), and the end‑to‑end launch of <strong>du Pay</strong>—all while improving reliability, accelerating delivery, and reducing cost.</p>
+          <p>Operating at the intersection of <strong>architecture, automation, and business outcomes</strong>, Yogesh partners with CXOs to turn ambitious cloud and AI strategies into measurable results.</p>
         </div>
-
-        <div class="timeline-item reveal">
-          <div class="role">Site Reliability Engineer — HCL Technologies</div>
-          <div class="meta">Noida, India • Aug 2021 – Mar 2024</div>
-          <div class="exp-highlights">
-            <div>• Cloud modernization for <strong>TotalEnergies</strong> & <strong>Unilever</strong> across AWS, VMware, Nutanix.</div>
-            <div>• <strong>21%</strong> scalability uplift & <strong>6%</strong> infra cost reduction via IaC/Terraform & platform tuning.</div>
-            <div>• CI/CD with Jenkins & GitLab; Kubernetes (EKS/AKS), Helm, Istio; <strong>20%</strong> faster deployments.</div>
-            <div>• Security hardening: WAF, GuardDuty, SIEM; automated patching & vuln remediation.</div>
-            <div>• Enterprise DR & backup (Rubrik, Velero); large‑scale VMware/Nutanix ops.</div>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="role">IT System & Network Administrator — R3 Systems</div>
-          <div class="meta">Nashik, India • Jun 2019 – Aug 2021</div>
-          <div class="exp-highlights">
-            <div>• Automated ops with PowerShell & Bash, cutting manual work by <strong>80%</strong>.</div>
-            <div>• Led 24/7 NOC/SOC achieving <strong>99.99%</strong> uptime; NGFW (FortiGate, Palo Alto), IPS & VPN.</div>
-            <div>• VMware/Nutanix: clusters, vSAN, DR, patch automation; Windows/Linux/AD admin.</div>
-          </div>
+        <div class="glass reveal" style="padding:1rem">
+          <ul>
+            <li>Leads cross‑functional teams of 40+ engineers</li>
+            <li>15–25% improvements across cost & reliability via FinOps and auto‑healing</li>
+            <li>$10M+ programs delivered (data center, cloud migration, network)</li>
+            <li>Security by default: WAF, SIEM, IAM, Zero Trust</li>
+            <li>Obsessed with operational excellence & continuous learning</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= STRATEGIC PROJECTS ================= -->
-    <section class="container" id="projects" aria-label="Strategic Projects">
-      <h3 class="section-title">Strategic Projects</h3>
-      <p class="section-sub">Programs blending platform strategy, product execution, and reliability engineering.</p>
-      <div class="projects-grid">
-        <!-- Project: Oracle Alloy sovereign cloud -->
-        <article class="project-card reveal" tabindex="0" aria-label="Oracle Alloy – Sovereign Cloud Platform">
-          <h4>Oracle Alloy — UAE Sovereign Cloud</h4>
-          <p class="muted">Data residency & security — custom marketplace, two‑tier billing, and du‑managed services.</p>
-          <div>
-            <span class="badge">Platform Strategy</span>
-            <span class="badge">Compliance</span>
-            <span class="badge">Marketplace</span>
-            <span class="badge">Billing</span>
+  <!-- EXPERIENCE / TIMELINE -->
+  <section id="experience">
+    <div class="container">
+      <div class="sec-head"><h2>Experience</h2><div class="line"></div></div>
+      <div class="timeline">
+        <!-- du (EITC) -->
+        <article class="tl-item reveal">
+          <div class="glass tl-card">
+            <h3>Site Reliability Engineering Manager — du (EITC)</h3>
+            <div class="tl-meta">Dubai, UAE • Mar 2024 – Present</div>
+            <p><strong>Scope:</strong> Led 40+ engineers; core team for UAE’s first sovereign cloud (Oracle Alloy); deployed first NVIDIA Supercluster in GCC; launched du Pay.</p>
+            <p><strong>Impact highlights:</strong></p>
+            <ul>
+              <li>Reduced downtime <strong>25%</strong> with auto‑healing (AWS ASG, VMSS, K8s HPA); accelerated resolution <strong>15%</strong> via Prometheus/Grafana/ELK.</li>
+              <li>Achieved <strong>15%</strong> cloud cost savings with FinOps (AWS Cost Explorer, Azure Cost Mgmt, KubeCost).</li>
+              <li>Delivered DR/HA with AWS Route 53, Multi‑AZ, cross‑region replication & Terraform‑driven runbooks.</li>
+              <li>Directed $10M programs (DC consolidation, cloud migrations, network upgrades) for 6% cost reduction, 15% reliability gain.</li>
+            </ul>
+            <div class="pill">Oracle Alloy</div><div class="pill">NVIDIA Supercluster</div><div class="pill">du Pay</div>
           </div>
-          <ul class="list" style="margin-top:.6rem">
-            <li>Defined architecture, security controls, DR and GTM motions.</li>
-            <li>Custom billing model and pricing rules deviating from public cloud norms.</li>
-            <li>Partner ecosystem enablement on a curated marketplace.</li>
-          </ul>
-        </article>
-
-        <!-- Project: NVIDIA Supercluster -->
-        <article class="project-card reveal" tabindex="0" aria-label="NVIDIA Supercluster — AI Datacenter">
-          <h4>NVIDIA Supercluster — AI Datacenter</h4>
-          <p class="muted">High‑density AI infra (5+ MW) at Dubai Nautilus with AIHostingHub; showcased at GITEX 2024.</p>
-          <div>
-            <span class="badge">AI Infra</span>
-            <span class="badge">NVIDIA</span>
-            <span class="badge">High Density</span>
-            <span class="badge">GITEX</span>
-          </div>
-          <ul class="list" style="margin-top:.6rem">
-            <li>Cross‑functional leadership: infra, networking, vendors, sustainability benchmarks.</li>
-            <li>Optimized for LLM training and accelerated workloads.</li>
-          </ul>
         </article>
 
-        <!-- Project: du Pay -->
-        <article class="project-card reveal" tabindex="0" aria-label="du Pay — Fintech Platform">
-          <h4>du Pay — Digital Wallet Launch</h4>
-          <p class="muted">Mission‑critical fintech launch with HA, DR, observability, and security guardrails.</p>
-          <div>
-            <span class="badge">Fintech</span>
-            <span class="badge">Kubernetes</span>
-            <span class="badge">Observability</span>
-            <span class="badge">HA/DR</span>
+        <!-- HCL -->
+        <article class="tl-item reveal">
+          <div class="glass tl-card">
+            <h3>Site Reliability Engineer — HCL Technologies</h3>
+            <div class="tl-meta">Noida, India • Aug 2021 – Mar 2024</div>
+            <p>Modernized and migrated large‑scale workloads for enterprise clients (TotalEnergies, Unilever) across AWS, VMware, and Nutanix.</p>
+            <ul>
+              <li>Improved application scalability <strong>21%</strong>; trimmed infra costs <strong>6%</strong> through optimization and IaC.</li>
+              <li>Cut release times <strong>15%</strong> with CI/CD (Jenkins, GitLab CI/CD, Helm, Terraform, Docker, K8s).</li>
+              <li>Hardened security with WAF, GuardDuty, SIEM; enforced SLO/SLI and MTTR to strengthen reliability culture.</li>
+              <li>Reduced cloud spend <strong>20%</strong> via autoscaling, reserved & spot instances; enhanced DR with Rubrik, Velero.</li>
+            </ul>
+            <div class="pill">IaC</div><div class="pill">Kubernetes</div><div class="pill">FinOps</div>
           </div>
-          <ul class="list" style="margin-top:.6rem">
-            <li>Multi‑region design with automated failover; zero data‑loss objectives.</li>
-            <li>Integrated SLO/SLI tracking and MTTR reduction.</li>
-          </ul>
         </article>
 
-        <!-- Project: 5G / Edge / MEC -->
-        <article class="project-card reveal" tabindex="0" aria-label="5G, Edge & MEC — Network Cloud Convergence">
-          <h4>5G / Edge / MEC — Network Cloud Convergence</h4>
-          <p class="muted">Evaluated network slicing and MEC to unlock low‑latency use cases and new revenue streams.</p>
-          <div>
-            <span class="badge">Telecom</span>
-            <span class="badge">Edge</span>
-            <span class="badge">Slicing</span>
-            <span class="badge">Automation</span>
-          </div>
-          <ul class="list" style="margin-top:.6rem">
-            <li>AI‑powered automation pilots for service reliability and real‑time analytics.</li>
-            <li>Blueprints aligning network and platform roadmaps.</li>
-          </ul>
-        </article>
-
-        <!-- Project: DR & HA at Scale -->
-        <article class="project-card reveal" tabindex="0" aria-label="DR & HA — Enterprise Continuity">
-          <h4>Enterprise DR & High Availability</h4>
-          <p class="muted">Cross‑region replication, Route 53, RDS Multi‑AZ, Terraform playbooks, and chaos tests.</p>
-          <div>
-            <span class="badge">Resilience</span>
-            <span class="badge">IaC</span>
-            <span class="badge">AWS</span>
-            <span class="badge">Azure</span>
-          </div>
-          <ul class="list" style="margin-top:.6rem">
-            <li>50% reduction in potential downtime during disaster scenarios.</li>
-            <li>Documented playbooks & automated failover drills.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= SKILLS & TOOLS ================= -->
-    <section class="container" id="skills" aria-label="Skills and Tools">
-      <h3 class="section-title">Skills & Tools</h3>
-      <p class="section-sub">Breadth for platform ownership, depth for decisive execution.</p>
-      <div class="skills-grid">
-        <article class="card skill-card reveal">
-          <h4>Cloud Platforms</h4>
-          <div class="chips">
-            <span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">GCP</span><span class="chip">Oracle Cloud</span><span class="chip">VMware</span><span class="chip">Nutanix</span>
-          </div>
-        </article>
-        <article class="card skill-card reveal">
-          <h4>DevOps & SRE</h4>
-          <div class="chips">
-            <span class="chip">Kubernetes (EKS/AKS)</span><span class="chip">Docker</span><span class="chip">Helm</span><span class="chip">Terraform</span><span class="chip">Ansible</span><span class="chip">Jenkins</span><span class="chip">GitLab CI/CD</span>
-          </div>
-        </article>
-        <article class="card skill-card reveal">
-          <h4>Observability & FinOps</h4>
-          <div class="chips">
-            <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">ELK</span><span class="chip">Splunk</span><span class="chip">CloudWatch</span><span class="chip">Azure Monitor</span><span class="chip">KubeCost</span>
-          </div>
-        </article>
-        <article class="card skill-card reveal">
-          <h4>Security & Networking</h4>
-          <div class="chips">
-            <span class="chip">Zero Trust</span><span class="chip">IAM/RBAC</span><span class="chip">SIEM (Sentinel/Splunk)</span><span class="chip">FortiGate</span><span class="chip">Palo Alto</span><span class="chip">WAF/GuardDuty</span>
-          </div>
-        </article>
-        <article class="card skill-card reveal">
-          <h4>Infrastructure & Virtualization</h4>
-          <div class="chips">
-            <span class="chip">vSphere</span><span class="chip">vSAN</span><span class="chip">NSX</span><span class="chip">Hyper‑V</span><span class="chip">Nutanix</span><span class="chip">Rubrik</span><span class="chip">Velero</span>
-          </div>
-        </article>
-        <article class="card skill-card reveal">
-          <h4>Leadership & Delivery</h4>
-          <div class="chips">
-            <span class="chip">Program Mgmt ($10M+)</span><span class="chip">SLO/SLI</span><span class="chip">ITIL</span><span class="chip">Stakeholder Mgmt</span><span class="chip">Vendor Mgmt</span>
+        <!-- R3 Systems -->
+        <article class="tl-item reveal">
+          <div class="glass tl-card">
+            <h3>IT System & Network Administrator — R3 Systems India</h3>
+            <div class="tl-meta">Nashik, India • Jun 2019 – Aug 2021</div>
+            <p>Automated infrastructure operations and led 24/7 NOC/SOC to sustain 99.99% uptime for enterprise environments.</p>
+            <ul>
+              <li>Cut manual effort <strong>80%</strong> with PowerShell & Bash automation (logging, scaling, SSL, audits).</li>
+              <li>Deployed NGFWs (FortiGate, Palo Alto), VPNs, IPS; strengthened DR and patching (VMware Update Manager).</li>
+            </ul>
+            <div class="pill">Automation</div><div class="pill">Security</div><div class="pill">VMware/Nutanix</div>
           </div>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= CERTIFICATIONS ================= -->
-    <section class="container" id="certs" aria-label="Certifications">
-      <h3 class="section-title">Certifications</h3>
-      <p class="section-sub">Grouped for clarity — headline credentials first.</p>
+  <!-- STRATEGIC PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="sec-head"><h2>Strategic Projects</h2><div class="line"></div></div>
+      <div class="cards">
+        <article class="glass card reveal" tabindex="0" aria-label="Oracle Alloy sovereign cloud">
+          <div class="shine" aria-hidden="true"></div>
+          <h3>UAE Sovereign Hyperscale Cloud — Oracle Alloy</h3>
+          <p>Core team architecting the UAE’s first sovereign cloud & AI platform meeting stringent data residency & security requirements. Custom marketplace, two‑tier billing, and du‑managed services.</p>
+          <ul>
+            <li>Launch target: <strong>July 2025</strong></li>
+            <li>Outcome: local partner ecosystem enablement</li>
+          </ul>
+        </article>
+
+        <article class="glass card reveal" tabindex="0" aria-label="NVIDIA Supercluster">
+          <div class="shine" aria-hidden="true"></div>
+          <h3>GCC’s First NVIDIA Supercluster</h3>
+          <p>Deployed in partnership with AIHostingHub at Dubai Nautilus (DSO) with 5+ MW power capacity; optimized for training large‑scale models with sustainability benchmarks.</p>
+          <ul>
+            <li>Showcased at <strong>GITEX 2024</strong></li>
+            <li>AI‑ready data center architecture</li>
+          </ul>
+        </article>
+
+        <article class="glass card reveal" tabindex="0" aria-label="du Pay digital wallet">
+          <div class="shine" aria-hidden="true"></div>
+          <h3>du Pay — Digital Wallet</h3>
+          <p>End‑to‑end SRE for secure, highly available fintech platform; defined infra requirements, security hardening, and GTM support to exceed early adoption targets.</p>
+          <ul>
+            <li>Launched: <strong>April 2024</strong></li>
+            <li>Zero‑downtime release engineering</li>
+          </ul>
+        </article>
+
+        <article class="glass card reveal" tabindex="0" aria-label="DR and HA patterns">
+          <div class="shine" aria-hidden="true"></div>
+          <h3>Resilience by Design — DR & HA Patterns</h3>
+          <p>Multi‑AZ, cross‑region replication, and automated failover with IaC and runbooks; measurable reductions in RTO/RPO.</p>
+          <ul>
+            <li>Potential downtime cut by <strong>50%</strong></li>
+            <li>Zero data loss during failovers</li>
+          </ul>
+        </article>
+
+        <article class="glass card reveal" tabindex="0" aria-label="FinOps optimization">
+          <div class="shine" aria-hidden="true"></div>
+          <h3>FinOps @ Scale</h3>
+          <p>Programmatic cost governance across AWS & Azure using KubeCost and native billing analytics; right‑sizing, scheduling, and commitment planning.</p>
+          <ul>
+            <li>Cloud spending ↓ <strong>15–20%</strong></li>
+            <li>Capacity without overprovisioning</li>
+          </ul>
+        </article>
+
+        <article class="glass card reveal" tabindex="0" aria-label="5G Edge & AI">
+          <div class="shine" aria-hidden="true"></div>
+          <h3>5G Edge • AI Automation</h3>
+          <p>Evaluated network slicing, MEC, and AI‑driven ops to enhance telecom reliability and unlock new revenue streams.</p>
+          <ul>
+            <li>Cross‑functional strategy with CXOs</li>
+            <li>AI‑powered observability</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT SNAPSHOT (CHARTS) -->
+  <section id="impact">
+    <div class="container">
+      <div class="sec-head"><h2>Impact Snapshot</h2><div class="line"></div></div>
+      <div class="impact">
+        <div class="glass reveal" style="padding:1rem">
+          <div class="metric" aria-live="polite">
+            <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Cost savings 20%">
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,.15)" stroke-width="3"></circle>
+              <circle id="donut-cost" cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradCost)" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
+              <defs>
+                <linearGradient id="gradCost" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--accent)"/>
+                  <stop offset="100%" stop-color="var(--accent-2)"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <b>20%</b>
+            <div class="muted">Cloud spend reduction</div>
+          </div>
+        </div>
+
+        <div class="glass reveal" style="padding:1rem">
+          <div class="metric" aria-live="polite">
+            <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Reliability improvement 25%">
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,.15)" stroke-width="3"></circle>
+              <circle id="donut-rel" cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradRel)" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
+              <defs>
+                <linearGradient id="gradRel" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--accent-2)"/>
+                  <stop offset="100%" stop-color="var(--accent)"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <b>25%</b>
+            <div class="muted">Downtime reduction</div>
+          </div>
+        </div>
+
+        <div class="glass reveal" style="padding:1rem">
+          <div class="metric" aria-live="polite">
+            <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Scalability improvement 21%">
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,.15)" stroke-width="3"></circle>
+              <circle id="donut-scale" cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradScale)" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
+              <defs>
+                <linearGradient id="gradScale" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--accent)"/>
+                  <stop offset="100%" stop-color="var(--accent-2)"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <b>21%</b>
+            <div class="muted">Application scalability ↑</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & TOOLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="sec-head"><h2>Skills & Tools</h2><div class="line"></div></div>
+      <div class="skills">
+        <div class="glass skill-box reveal">
+          <h3>Cloud Platforms</h3>
+          <div class="skill-list">
+            <span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">GCP</span><span class="pill">Oracle Cloud</span><span class="pill">VMware</span><span class="pill">Nutanix</span>
+          </div>
+        </div>
+        <div class="glass skill-box reveal">
+          <h3>DevOps & SRE</h3>
+          <div class="skill-list">
+            <span class="pill">Kubernetes (EKS/AKS/GKE)</span><span class="pill">Helm</span><span class="pill">Docker</span><span class="pill">Terraform</span><span class="pill">Ansible</span><span class="pill">Jenkins</span><span class="pill">GitLab CI/CD</span><span class="pill">SLO/SLI • MTTR</span>
+          </div>
+        </div>
+        <div class="glass skill-box reveal">
+          <h3>Security & Networking</h3>
+          <div class="skill-list">
+            <span class="pill">Zero Trust</span><span class="pill">IAM</span><span class="pill">SIEM (Splunk/Sentinel)</span><span class="pill">WAF • GuardDuty</span><span class="pill">FortiGate</span><span class="pill">Palo Alto</span><span class="pill">F5</span>
+          </div>
+        </div>
+        <div class="glass skill-box reveal">
+          <h3>Observability</h3>
+          <div class="skill-list">
+            <span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">ELK</span><span class="pill">CloudWatch</span><span class="pill">Azure Monitor</span>
+          </div>
+        </div>
+        <div class="glass skill-box reveal">
+          <h3>Virtualization & DR</h3>
+          <div class="skill-list">
+            <span class="pill">vSphere</span><span class="pill">vSAN</span><span class="pill">NSX</span><span class="pill">Hyper‑V</span><span class="pill">Rubrik</span><span class="pill">Velero</span>
+          </div>
+        </div>
+        <div class="glass skill-box reveal">
+          <h3>FinOps & Leadership</h3>
+          <div class="skill-list">
+            <span class="pill">AWS Cost Explorer</span><span class="pill">Azure Cost Mgmt</span><span class="pill">KubeCost</span><span class="pill">ITIL</span><span class="pill">Stakeholder Mgmt</span><span class="pill">Program Delivery ($10M+)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <div class="container">
+      <div class="sec-head"><h2>Certifications</h2><div class="line"></div></div>
       <div class="certs">
-        <article class="card reveal">
-          <h4>Cloud Architecture (Professional)</h4>
-          <ul class="cert-list">
+        <div class="glass reveal" style="padding:1rem">
+          <h3>Cloud Architecture</h3>
+          <ul>
             <li>AWS Certified Solutions Architect — Associate (SAA‑C03)</li>
             <li>Google Cloud Professional Cloud Architect (GCP‑PCA)</li>
-            <li>Oracle Cloud Infrastructure — Cloud Architect Professional (1Z0‑997‑23)</li>
+            <li>Oracle Cloud Infrastructure Certified Cloud Architect Professional (1Z0‑997‑23)</li>
             <li>Nutanix Certified Professional — Multicloud Infrastructure (NCP‑MCI)</li>
           </ul>
-        </article>
-        <article class="card reveal">
-          <h4>Security, Azure & SRE</h4>
-          <ul class="cert-list">
-            <li>Microsoft Certified: Azure Fundamentals (AZ‑900)</li>
-            <li>Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC‑900)</li>
-            <li>Microsoft Certified: Azure Data Fundamentals (DP‑900)</li>
-            <li>HCL Technologies — Certified Site Reliability Engineer (SRE)</li>
-            <li>Oracle Fusion Cloud Applications ERP Associate (1Z0‑1160‑1)</li>
-            <li>ManageEngine Certified Applications Performance Manager (APM)</li>
-            <li>Udemy — Product Management (Certificate)</li>
-            <li>Udemy — Fundamentals of PCI DSS v4.0.0</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= HONORS & AWARDS ================= -->
-    <section class="container" id="awards" aria-label="Honors and Awards">
-      <h3 class="section-title">Honors & Awards</h3>
-      <div class="grid-2">
-        <article class="card reveal">
-          <h4>Leadership Recognition — du (EITC), 2024</h4>
-          <p class="muted">Architected GCC’s first NVIDIA Supercluster; drove multi‑party alignment and visibility at GITEX 2024.</p>
-        </article>
-        <article class="card reveal">
-          <h4>MVP Employee — du (EITC)</h4>
-          <p class="muted">Established and led restructured operations team serving 50+ customers including major Dubai government entities.</p>
-        </article>
-        <article class="card reveal">
-          <h4>Leadership Award — HCL Technologies</h4>
-          <p class="muted">Independently delivered 29+ projects across cloud modernization and platform reliability.</p>
-        </article>
-        <article class="card reveal">
-          <h4>Excellence Award — HCL Technologies</h4>
-          <p class="muted">Replaced manual processes with automation, cutting effort by 30% and saving ~$50,000 annually.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= METRICS / CHARTS ================= -->
-    <section class="container" aria-label="Key Metrics and Outcomes">
-      <h3 class="section-title">Scale, Reliability & Efficiency — At a Glance</h3>
-      <div class="metrics">
-        <article class="card reveal">
-          <h4>Executive Summary</h4>
-          <ul class="list">
-            <li><strong>40+ engineers</strong> led across cloud, network, and platform teams.</li>
-            <li><strong>25% downtime reduction</strong> via auto‑healing infra; <strong>15% faster MTTR</strong> with observability.</li>
-            <li><strong>15–20% cloud savings</strong> through FinOps; reserved/spot strategies; right‑sizing.</li>
-            <li><strong>$10M</strong> programs: DC consolidation, cloud migration, network upgrades.</li>
-          </ul>
-        </article>
-        <figure class="chart reveal" aria-label="Key outcome chart">
-          <!-- Simple responsive SVG bar chart -->
-          <svg viewBox="0 0 560 260" role="img" aria-labelledby="chartTitle chartDesc">
-            <title id="chartTitle">Reliability & Cost Outcomes</title>
-            <desc id="chartDesc">Bars showing downtime reduction, MTTR improvement, and cost savings percentages.</desc>
-            <!-- axes -->
-            <line x1="60" y1="210" x2="520" y2="210" stroke="currentColor" opacity=".4"/>
-            <line x1="60" y1="40" x2="60" y2="210" stroke="currentColor" opacity=".4"/>
-            <!-- labels -->
-            <text x="60" y="230" class="mono" font-size="12">0%</text>
-            <text x="140" y="230" class="mono" font-size="12">10%</text>
-            <text x="220" y="230" class="mono" font-size="12">20%</text>
-            <text x="300" y="230" class="mono" font-size="12">30%</text>
-            <text x="380" y="230" class="mono" font-size="12">40%</text>
-            <text x="460" y="230" class="mono" font-size="12">50%</text>
-
-            <!-- bars (animated via JS) -->
-            <g id="bars">
-              <g>
-                <text x="10" y="90" font-size="12">Downtime ↓</text>
-                <rect x="60" y="70" width="0" height="24" rx="6"></rect>
-              </g>
-              <g>
-                <text x="10" y="140" font-size="12">MTTR ↑</text>
-                <rect x="60" y="120" width="0" height="24" rx="6"></rect>
-              </g>
-              <g>
-                <text x="10" y="190" font-size="12">Cloud Cost ↓</text>
-                <rect x="60" y="170" width="0" height="24" rx="6"></rect>
-              </g>
-            </g>
-          </svg>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ================= EDUCATION ================= -->
-    <section class="container" id="education" aria-label="Education">
-      <h3 class="section-title">Education & Learning Approach</h3>
-      <div class="grid-2">
-        <article class="card reveal">
-          <h4>Degrees</h4>
-          <ul class="list">
-            <li><strong>Bachelor of Engineering</strong> — University of Pune (2019) — <span class="mono">75.33%</span></li>
-            <li><strong>Diploma</strong> — KVN Naik Polytechnic (2016) — <span class="mono">83.82%</span></li>
-          </ul>
-        </article>
-        <article class="card reveal">
-          <h4>Continuous Learning</h4>
-          <p class="muted">I pursue credentials and hands‑on prototypes to stay current on platform shifts in AI, cloud, and security — translating emerging capabilities into production‑grade services.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section class="container contact" id="contact" aria-label="Contact">
-      <div class="contact-card card reveal">
-        <h3 class="section-title" style="margin-top:0">Let’s build reliable platforms — together</h3>
-        <p class="section-sub">Direct lines for executive conversations, RFPs, and architecture reviews.</p>
-        <div class="contact-cta" role="group" aria-label="Contact actions">
-          <a class="btn primary" href="mailto:guptay434@gmail.com" aria-label="Email Yogesh">✉️ Email</a>
-          <a class="btn" href="tel:+971559532001" aria-label="Call Yogesh">📞 Call</a>
-          <a class="btn" href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener" aria-label="Open LinkedIn">in LinkedIn</a>
-          <button class="btn" id="copyEmail" aria-label="Copy email to clipboard">Copy Email</button>
-          <button class="btn" id="copyPhone" aria-label="Copy phone to clipboard">Copy Phone</button>
         </div>
-        <p class="muted" style="margin-top:1rem">Prefer a PDF? <a class="mono" href="assets/Yogesh_Gupta_Resume.pdf" download>Download resume here</a>.</p>
+        <div class="glass reveal" style="padding:1rem">
+          <h3>Microsoft Azure</h3>
+          <ul>
+            <li>Azure Fundamentals (AZ‑900)</li>
+            <li>Azure Security Fundamentals (SC‑900)</li>
+            <li>Azure Data Fundamentals (DP‑900)</li>
+          </ul>
+        </div>
+        <div class="glass reveal" style="padding:1rem">
+          <h3>Security, SRE & Compliance</h3>
+          <ul>
+            <li>HCL Technologies Certified Site Reliability Engineer (SRE)</li>
+            <li>ManageEngine Applications Performance Manager (APM)</li>
+            <li>Oracle Fusion Cloud Applications ERP Associate (1Z0‑1160‑1)</li>
+            <li>Udemy — Product Management</li>
+            <li>Udemy — Fundamentals of PCI DSS v4.0</li>
+          </ul>
+        </div>
       </div>
-      <aside class="card reveal" aria-label="Quick facts">
-        <h4>Quick Facts</h4>
-        <ul class="list">
-          <li>Location: <strong>Dubai, UAE</strong></li>
-          <li>Open to: Cloud Platform, SRE Leadership, AI Infra Programs</li>
-          <li>Clearance/Compliance: Data residency, PCI, enterprise security frameworks</li>
-        </ul>
-      </aside>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <div class="container">
+      <div class="sec-head"><h2>Honors & Awards</h2><div class="line"></div></div>
+      <div class="grid cols-3">
+        <div class="glass reveal" style="padding:1rem">
+          <h3>Leadership Recognition — du (2024)</h3>
+          <p>Architected GCC’s first NVIDIA Supercluster; cross‑vendor leadership; showcased at GITEX 2024.</p>
+        </div>
+        <div class="glass reveal" style="padding:1rem">
+          <h3>MVP — du</h3>
+          <p>Established & managed a restructured operations team serving 50+ customers, incl. Dubai government entities.</p>
+        </div>
+        <div class="glass reveal" style="padding:1rem">
+          <h3>Leadership & Excellence — HCL</h3>
+          <p>Delivered 29+ projects; introduced automation that cut manual work 30% and saved $50K annually.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="sec-head"><h2>Education & Continuous Learning</h2><div class="line"></div></div>
+      <div class="edu">
+        <div class="glass reveal" style="padding:1rem">
+          <h3>Bachelor of Engineering — University of Pune</h3>
+          <p>Graduated 2019 • Percentage: 75.33%</p>
+        </div>
+        <div class="glass reveal" style="padding:1rem">
+          <h3>Diploma — KVN Naik Polytechnic</h3>
+          <p>Completed 2016 • Percentage: 83.82%</p>
+        </div>
+      </div>
+      <div class="glass reveal" style="padding:1rem; margin-top:1rem">
+        <h3>Learning Approach</h3>
+        <p>Curates a <em>continuous learning palette</em> spanning cloud architecture, AI infrastructure, security, and FinOps. Applies new patterns through pilots, measures outcomes, and scales wins across the organization.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="sec-head"><h2>Contact</h2><div class="line"></div></div>
+      <div class="cta">
+        <div class="glass reveal" style="padding:1rem">
+          <h3>Let’s build resilient, AI‑ready platforms.</h3>
+          <p><strong>Email:</strong> <a href="mailto:guptay434@gmail.com">guptay434@gmail.com</a><br/>
+          <strong>Phone:</strong> <a href="tel:+971559532001">+971 55 953 2001</a><br/>
+          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener">linkedin.com/in/mdyogesh</a></p>
+          <div style="display:flex; gap:.8rem; flex-wrap:wrap; margin-top:.6rem">
+            <a class="btn gold" href="assets/Yogesh_Gupta_Resume.pdf" download>📄 Download Resume Here</a>
+            <a class="btn" href="#hero">↑ Back to Top</a>
+          </div>
+        </div>
+        <div class="glass reveal pulse" style="padding:1rem; display:grid; place-items:center; min-height:160px">
+          <div style="text-align:center">
+            <div style="font-size:2.2rem;">✨</div>
+            <p style="margin:.4rem 0 0; color:var(--muted)">Tap the <strong>🌗 Theme</strong> button to explore dark & light experiences with gold accents.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <div class="container">
-      <small>© <span id="year"></span> Yogesh Gupta — Strategic Site Reliability Engineering Manager</small>
-    </div>
+    <div class="container">© <span id="year"></span> Yogesh Gupta • SRE Leadership Portfolio</div>
   </footer>
 
   <script>
-    // ================= THEME: respect system preference + toggle with persistence =================
-    (function initTheme(){
-      const root = document.documentElement;
-      const saved = localStorage.getItem('theme');
-      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-      if (saved === 'light' || (!saved && prefersLight)) root.classList.add('light');
-      const toggle = document.getElementById('themeToggle');
-      const setToggle = () => toggle.classList.toggle('active', root.classList.contains('light'));
-      setToggle();
-      function flip(){
-        root.classList.toggle('light');
-        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-        setToggle();
-      }
-      toggle.addEventListener('click', flip);
-      toggle.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); flip(); }});
-      toggle.setAttribute('aria-checked', root.classList.contains('light'));
-      const observer = new MutationObserver(()=> toggle.setAttribute('aria-checked', root.classList.contains('light')));
-      observer.observe(root, { attributes:true, attributeFilter:['class'] });
-    })();
+    // ====== Accessibility-friendly menu toggle ======
+    const menuBtn = document.querySelector('.menu-btn');
+    const menu = document.getElementById('navMenu');
 
-    // ================= REVEAL ON SCROLL =================
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el=> io.observe(el));
+    menuBtn.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', isOpen);
+    });
 
-    // ================= PROJECT CARD HOVER TILT =================
-    document.querySelectorAll('.project-card').forEach(card=>{
-      const damp = 20; // smaller is more tilt
-      card.addEventListener('mousemove', (e)=>{
-        const r = card.getBoundingClientRect();
-        const cx = e.clientX - r.left; const cy = e.clientY - r.top;
-        const rx = ((cy - r.height/2) / damp).toFixed(2);
-        const ry = (-(cx - r.width/2) / damp).toFixed(2);
-        card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+    // Close menu on nav click (mobile)
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (menu.classList.contains('open')) { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }
+    }));
+
+    // ====== Dark / Light theme toggle with persistence ======
+    const root = document.documentElement;
+    const toggleBtn = document.getElementById('themeToggle');
+
+    const setTheme = (mode) => {
+      if (mode === 'light') root.classList.add('light');
+      else root.classList.remove('light');
+      localStorage.setItem('theme', mode);
+      toggleBtn.textContent = root.classList.contains('light') ? '🌙 Dark' : '🌞 Light';
+      toggleBtn.setAttribute('aria-pressed', root.classList.contains('light'));
+    };
+
+    // Respect saved preference or system preference
+    const saved = localStorage.getItem('theme');
+    if (saved) setTheme(saved);
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) setTheme('light');
+
+    toggleBtn.addEventListener('click', () => {
+      const toLight = !root.classList.contains('light');
+      setTheme(toLight ? 'light' : 'dark');
+    });
+
+    // ====== Reveal on scroll (fade-in) ======
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-      card.addEventListener('mouseleave', ()=> card.style.transform = 'rotateX(0) rotateY(0)');
-    });
+    }, { threshold: 0.12 });
 
-    // ================= COPY TO CLIPBOARD =================
-    const copy = (text) => navigator.clipboard && navigator.clipboard.writeText(text).then(()=>{
-      const msg = document.createElement('div');
-      msg.textContent = 'Copied to clipboard';
-      msg.style.position='fixed'; msg.style.bottom='20px'; msg.style.left='50%'; msg.style.transform='translateX(-50%)';
-      msg.style.padding='8px 12px'; msg.style.borderRadius='10px'; msg.style.background='var(--bg-elev)'; msg.style.border='1px solid var(--border)'; msg.style.boxShadow='var(--shadow)';
-      document.body.appendChild(msg); setTimeout(()=> msg.remove(), 1200);
-    });
-    document.getElementById('copyEmail').addEventListener('click', ()=> copy('guptay434@gmail.com'));
-    document.getElementById('copyPhone').addEventListener('click', ()=> copy('+971559532001'));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // ================= FOOTER YEAR =================
+    // ====== Donut charts animation ======
+    function animateDonut(el, pct) {
+      const dash = `${pct} ${100 - pct}`;
+      el.setAttribute('stroke-dasharray', dash);
+    }
+
+    // Trigger when impact section in view
+    const impact = document.getElementById('impact');
+    const donuts = {
+      cost: document.getElementById('donut-cost'),
+      rel: document.getElementById('donut-rel'),
+      scale: document.getElementById('donut-scale')
+    };
+
+    const impactObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateDonut(donuts.cost, 20);   // 20% cost savings
+          animateDonut(donuts.rel, 25);    // 25% downtime reduction
+          animateDonut(donuts.scale, 21);  // 21% scalability increase
+          impactObs.disconnect();
+        }
+      })
+    }, { threshold: 0.3 });
+    impactObs.observe(impact);
+
+    // ====== Current year ======
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ================= SVG BAR CHART ANIMATION =================
-    (function chart(){
-      const percents = [25, 15, 20]; // Downtime ↓, MTTR ↑, Cost ↓
-      const bars = document.querySelectorAll('#bars rect');
-      const maxWidth = 440; // svg width from x=60 to 500
-      bars.forEach((bar, i)=>{
-        const target = maxWidth * (percents[i] / 50); // scale to 50% axis
-        let w = 0; const step = () => {
-          w += Math.max(2, target/40);
-          if (w >= target) { bar.setAttribute('width', target); return; }
-          bar.setAttribute('width', w);
-          requestAnimationFrame(step);
-        }; step();
-        // color gradient per bar
-        bar.setAttribute('fill', i===0 ? 'url(#g1)' : i===1 ? 'url(#g2)' : 'url(#g3)');
-      });
-      // Inject gradients once
-      const svg = document.querySelector('.chart svg');
-      const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-      [['g1','var(--brand)','var(--brand-2)'],['g2','var(--ok)','var(--brand)'],['g3','var(--danger)','var(--warn)']].forEach(([id,c1,c2])=>{
-        const lg = document.createElementNS('http://www.w3.org/2000/svg','linearGradient');
-        lg.setAttribute('id', id); lg.setAttribute('x1','0'); lg.setAttribute('x2','1');
-        const s1 = document.createElementNS('http://www.w3.org/2000/svg','stop'); s1.setAttribute('offset','0%'); s1.setAttribute('stop-color', getComputedStyle(document.documentElement).getPropertyValue(c1)||c1);
-        const s2 = document.createElementNS('http://www.w3.org/2000/svg','stop'); s2.setAttribute('offset','100%'); s2.setAttribute('stop-color', getComputedStyle(document.documentElement).getPropertyValue(c2)||c2);
-        lg.appendChild(s1); lg.appendChild(s2); defs.appendChild(lg);
-      });
-      svg.prepend(defs);
-    })();
   </script>
 </body>
 </html>
