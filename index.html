@@ -1,694 +1,835 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- SEO Basics -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Yogesh Gupta — Strategic Site Reliability Engineering Manager specializing in multi‑cloud, DevOps/SRE, and AI-driven cloud innovation." />
-  <title>Yogesh Gupta • SRE Leadership Portfolio</title>
+  <title>Yogesh Gupta | Strategic SRE & Multi‑Cloud Platform Leader</title>
+  <meta name="description" content="Portfolio of Yogesh Gupta — Strategic Site Reliability Engineering Manager. Expertise in multi‑cloud (AWS, Azure, OCI, VMware, Nutanix), SRE/DevOps, AI/HPC, FinOps, DR/HA, and telco‑scale platforms." />
 
-  <!-- Accessible, luxury-inspired typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Yogesh Gupta | Strategic SRE & Multi‑Cloud Platform Leader" />
+  <meta property="og:description" content="Sovereign cloud (Oracle Alloy), NVIDIA Supercluster, du Pay — enterprise‑grade reliability & innovation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/0f1226/ffffff&text=Yogesh+Gupta+%7C+SRE" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yogesh Gupta | Strategic SRE & Multi‑Cloud Platform Leader" />
+  <meta name="twitter:description" content="Sovereign cloud (Oracle Alloy), NVIDIA Supercluster, du Pay — enterprise‑grade reliability & innovation." />
+  <meta name="twitter:image" content="https://dummyimage.com/1200x630/0f1226/ffffff&text=Yogesh+Gupta+%7C+SRE" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yogesh Gupta",
+    "jobTitle": "Site Reliability Engineering Manager",
+    "telephone": "+971559532001",
+    "email": "mailto:guptay434@gmail.com",
+    "url": "https://example.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/mdyogesh/"
+    ],
+    "knowsAbout": [
+      "Site Reliability Engineering",
+      "Multi-Cloud Architecture",
+      "DevOps",
+      "Kubernetes",
+      "Oracle Alloy",
+      "FinOps",
+      "Disaster Recovery",
+      "Observability",
+      "AI/HPC"
+    ],
+    "alumniOf": [{"@type": "CollegeOrUniversity", "name": "University of Pune"}]
+  }
+  </script>
 
   <style>
+    /* ==========================
+       Design System (No frameworks)
+       ========================== */
     :root {
-      /* Color system */
-      --bg: #0e0f12;
-      --card: rgba(255,255,255,0.06);
-      --text: #e6e6e9;
-      --muted: #a6a8ad;
-      --accent: #d4af37;           /* Gold */
-      --accent-2: #f6e27a;         /* Light gold for gradients */
-      --link: #9ecbff;
-      --success: #4ade80;
-      --warning: #fbbf24;
-      --danger: #fb7185;
-
-      /* Light mode defaults will be swapped via .light */
-      --surface: rgba(255,255,255,0.5);
-
-      --radius: 16px;
-      --radius-lg: 22px;
+      --bg: #0b0f1a;                 /* obsidian/navy */
+      --bg-elev: rgba(255,255,255,0.04);
+      --text: #e6e9ef;               /* mercury */
+      --subtle: #a8b0c3;
+      --muted: #7e86a1;
+      --gold: #f2c14e;
+      --emerald: #2de39a;
+      --violet: #8a7cff;
+      --neon: #2dd4ff;               /* neon blue */
+      --danger: #ff5f6d;
+      --surface: rgba(255, 255, 255, 0.06);
+      --glass: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
       --shadow: 0 10px 30px rgba(0,0,0,0.35);
-
-      --maxw: 1200px;
+      --radius: 18px;
+      --radius-lg: 24px;
+      --maxw: 1160px;
+      --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --grad-sunrise: linear-gradient(135deg, #FF8A00 0%, #E52E71 100%);
+      --grad-cyber: linear-gradient(135deg, #2dd4ff 0%, #8a7cff 100%);
+      --grad-emerald: linear-gradient(135deg, #2de39a 0%, #2dd4ff 100%);
+      --focus: 0 0 0 3px rgba(45,212,255,.4), 0 0 0 1.2px #2dd4ff inset;
+      --nav-h: 64px;
+    }
+    [data-theme="light"] {
+      --bg: #f6f7fb;
+      --bg-elev: rgba(0,0,0,0.03);
+      --text: #111419;
+      --subtle: #3d4656;
+      --muted: #5b657a;
+      --surface: rgba(0, 0, 0, 0.05);
+      --glass: rgba(255,255,255,0.65);
+      --border: rgba(0,0,0,0.12);
+      --shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
-    /* Light theme overrides */
-    :root.light {
-      --bg: #fafafa;
-      --card: rgba(5, 7, 12, 0.06);
-      --text: #121316;
-      --muted: #3f4249;
-      --link: #0a66c2;
-      --surface: rgba(255,255,255,0.7);
-      --shadow: 0 10px 24px rgba(0,0,0,0.15);
-    }
-
-    /* Reset & base */
-    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0; background: radial-gradient(1200px 800px at 80% -10%, rgba(212,175,55,0.08), transparent 60%),
-      radial-gradient(900px 600px at 10% 110%, rgba(246,226,122,0.08), transparent 60%), var(--bg);
-      color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      margin: 0; font-family: var(--font); background: var(--bg); color: var(--text);
       line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
-    a { color: var(--link); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    /* Skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.5rem 1rem;background:var(--neon);color:black;border-radius:10px;z-index:9999}
 
-    .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 1.2rem; }
-
-    /* App bar */
+    /* Nav */
     header {
-      position: sticky; top: 0; z-index: 1000; backdrop-filter: saturate(140%) blur(10px);
-      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.00));
-      box-shadow: var(--shadow);
+      position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      border-bottom: 1px solid var(--border);
     }
-    :root.light header { background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2)); }
-
-    .nav {
-      display: flex; align-items: center; justify-content: space-between; padding: .75rem 1rem;
+    .nav { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; }
+    .brand { display:flex; align-items:center; gap:.75rem; font-weight:700; letter-spacing:.3px; }
+    .brand .logo { width: 36px; height: 36px; border-radius: 12px; background: var(--grad-cyber);
+      box-shadow: 0 0 24px rgba(45,212,255,.45), inset 0 0 24px rgba(138,124,255,.25);
     }
-    .brand {
-      display: flex; align-items: baseline; gap: .5rem; font-weight: 800; letter-spacing: .3px;
-    }
-    .brand .dot { color: var(--accent); }
-    .brand small { font-weight: 500; color: var(--muted); }
-
-    nav ul { list-style: none; display: flex; gap: 1rem; padding: 0; margin: 0; }
-    nav a { font-weight: 600; padding: .5rem .75rem; border-radius: 999px; }
-    nav a:hover { background: var(--card); text-decoration: none; }
+    nav ul { list-style:none; padding:0; margin:0; display:flex; gap: 1rem; }
+    nav a { color: var(--text); text-decoration:none; padding:.5rem .75rem; border-radius:12px; position:relative; }
+    nav a:hover{ background: var(--surface); box-shadow: 0 10px 24px rgba(0,0,0,.15); }
 
     /* Hamburger */
-    .menu-btn { display: none; background: transparent; border: 0; color: var(--text); font-size: 1.6rem; cursor: pointer; }
-    .menu { display: flex; }
+    .menu-btn { display:none; background:none; border:1px solid var(--border); border-radius:12px; padding:.5rem; cursor:pointer; }
+    .menu-btn:focus{ outline:none; box-shadow: var(--focus); }
+    .menu-btn .bar{ display:block; width:24px; height:2px; background:var(--text); margin:5px 0; border-radius:2px; transition:.3s }
 
-    @media (max-width: 900px) {
-      .menu-btn { display: inline-flex; }
-      .menu { display: none; position: absolute; right: 1rem; top: 64px; flex-direction: column; background: var(--surface); backdrop-filter: blur(8px);
-        border-radius: var(--radius); box-shadow: var(--shadow); padding: .5rem; }
-      .menu a { display: block; padding: .7rem 1rem; }
-      .menu.open { display: flex; }
-    }
+    /* Theme toggle */
+    .theme-toggle { background: var(--surface); border:1px solid var(--border); border-radius: 999px; padding:.35rem .6rem; display:flex; align-items:center; gap:.5rem; cursor:pointer }
+    .theme-toggle span{ font-size:12px; color:var(--muted) }
 
     /* Hero */
-    .hero { position: relative; padding: 6rem 0 4rem; overflow: clip; }
-    .hero .container { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-
-    .badge {
-      display: inline-flex; align-items: center; gap: .5rem; font-size: .85rem; padding: .35rem .7rem; border-radius: 999px; border: 1px solid rgba(212,175,55,.35);
-      background: linear-gradient(135deg, rgba(212,175,55,.18), rgba(255,255,255,.02)); box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 6px 18px rgba(0,0,0,.2);
+    .hero {
+      position: relative; padding: 80px 0 40px; min-height: calc(52vh - var(--nav-h));
+      display:grid; align-items:center; overflow:hidden;
     }
-    .title { font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: .3px; line-height: 1.12; font-size: clamp(2rem, 6vw, 3.25rem); margin: .6rem 0; }
-    .subtitle { color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.2rem); }
-
-    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.2rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(255,255,255,.15); padding: .7rem 1rem; border-radius: 12px; font-weight: 700; cursor: pointer;
-      background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-      box-shadow: var(--shadow);
-      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    .hero::before {
+      content:""; position:absolute; inset:-20%; background: radial-gradient( circle at 10% 10%, rgba(45,212,255,.25), transparent 40%),
+                                           radial-gradient( circle at 90% 20%, rgba(242,193,78,.25), transparent 40%),
+                                           radial-gradient( circle at 50% 90%, rgba(138,124,255,.18), transparent 40%);
+      filter: blur(40px); z-index:-1;
     }
-    .btn:hover { transform: translateY(-2px); border-color: rgba(212,175,55,.7); background: linear-gradient(135deg, rgba(212,175,55,.22), rgba(255,255,255,.06)); }
-    .btn.gold { border: 1px solid rgba(212,175,55,.8); background: linear-gradient(135deg, rgba(212,175,55,.85), rgba(246,226,122,.45)); color: #1b1b1b; }
-    .btn.gold:hover { filter: brightness(1.05); }
+    .hero-grid { display:grid; gap: 28px; grid-template-columns: 1.1fr .9fr; align-items:center; }
+    .glass {
+      background: var(--glass); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow); backdrop-filter: blur(10px);
+    }
+    .card { padding: 24px; border-radius: var(--radius); background: var(--surface); border:1px solid var(--border); }
 
-    /* Glass reflection utility */
-    .glass { position: relative; background: var(--card); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(10px) saturate(125%);
-      box-shadow: var(--shadow); }
-    .glass::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; background:
-      linear-gradient(130deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 40%),
-      linear-gradient(180deg, rgba(212,175,55,.18), rgba(255,255,255,0) 60%);
-      mask: linear-gradient(180deg, rgba(0,0,0,.7), transparent 45%);
-      pointer-events: none; }
+    .title { font-size: clamp(28px, 5vw, 48px); line-height:1.15; margin:0 0 8px }
+    .subtitle { font-size: clamp(16px, 2.2vw, 22px); color: var(--muted); margin:0 0 16px }
+    .tagline { font-family: var(--mono); color: var(--subtle); font-size: 14px }
 
-    /* Section */
-    section { padding: 3.5rem 0; }
-    section .sec-head { display: flex; align-items: baseline; gap: .75rem; margin-bottom: 1.6rem; }
-    .sec-head h2 { margin: 0; font-size: clamp(1.3rem, 4vw, 1.8rem); }
-    .sec-head .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); opacity: .6; border-radius: 999px; }
+    .cta-row { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:18px }
+    .btn { --glow: rgba(45,212,255,.6); display:inline-flex; align-items:center; gap:.5rem; padding:.8rem 1rem; border-radius:14px;
+      border:1px solid var(--border); background: var(--bg-elev); color: var(--text); text-decoration:none; transition:.25s transform, .25s box-shadow }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px var(--bg-elev), 0 0 24px var(--glow); }
+    .btn.primary { background: var(--grad-cyber); color:#071018; font-weight:700; border: none; }
 
-    /* Grid helpers */
-    .grid { display: grid; gap: 1rem; }
-    @media (min-width: 760px) { .grid.cols-2 { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 980px) { .grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
+    .bio-points { display:grid; gap:12px; }
+    .bio-points li { list-style:none; background: var(--surface); padding: 12px 14px; border-radius:12px; border:1px solid var(--border); }
 
-    /* About */
-    .about p { margin: 0 0 1rem; }
+    /* Sections */
+    section { padding: 60px 0; }
+    section header h2 { font-size: clamp(20px, 3.5vw, 32px); margin:0 0 6px }
+    section header p { color: var(--muted); margin:0 0 20px }
 
-    /* Experience timeline */
-    .timeline { position: relative; margin-left: .75rem; }
-    .timeline::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent), transparent); }
-    .tl-item { position: relative; padding-left: 2.5rem; margin: 1rem 0; }
-    .tl-item::before { content: ""; position: absolute; left: 2px; top: .6rem; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, var(--accent-2), var(--accent)); box-shadow: 0 0 0 4px rgba(212,175,55,.15); }
-    .tl-card { padding: 1rem; border-radius: var(--radius); }
-    .tl-card h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
-    .tl-meta { color: var(--muted); font-size: .9rem; margin-bottom: .4rem; }
-    .pill { display: inline-block; padding: .25rem .5rem; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; font-size: .75rem; margin-right: .35rem; background: rgba(255,255,255,.06); }
+    /* Timeline */
+    .timeline { position:relative; margin-left: 8px }
+    .timeline::before{ content:""; position:absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--neon), transparent); }
+    .tl-item { position:relative; padding-left: 44px; margin: 20px 0; }
+    .tl-item::before{ content:""; position:absolute; left: 6px; top: 8px; width: 16px; height:16px; border-radius:50%; background: var(--bg); border: 2px solid var(--neon); box-shadow: 0 0 18px rgba(45,212,255,.6); }
+    .tl-item .tl-card { padding:18px; border-radius:16px; border:1px solid var(--border); background: var(--surface); transition:.25s }
+    .tl-item .tl-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow) }
+    .meta { display:flex; gap:.75rem; flex-wrap:wrap; color: var(--muted); font-size: 14px }
 
-    /* Project cards */
-    .cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-    @media (min-width: 760px) { .cards { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1100px) { .cards { grid-template-columns: repeat(3, 1fr); } }
-    .card { position: relative; overflow: hidden; padding: 1rem; min-height: 220px; }
-    .card h3 { margin-top: .4rem; }
-    .shine { position: absolute; inset: 0; background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.28) 25%, transparent 50%); transform: translateX(-100%); }
-    .card:hover .shine { animation: sweep 900ms ease; }
-    @keyframes sweep { to { transform: translateX(100%); } }
+    /* Projects */
+    .grid { display:grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+    .project { position:relative; overflow:hidden; border-radius:18px; border:1px solid var(--border); background: var(--surface); }
+    .project .thumb { height: 160px; background: var(--grad-emerald); filter: saturate(1.1); }
+    .project .content { padding:16px }
+    .badge { display:inline-block; font-size:12px; padding:.2rem .55rem; border-radius:999px; border:1px solid var(--border); background: rgba(0,0,0,.08) }
+    .project:hover .thumb{ transform: scale(1.05) rotate(.2deg); transition: transform .5s ease }
+    .reflection { position:absolute; inset:0; pointer-events:none; }
+    .reflection::before { content:""; position:absolute; top:-80%; left:-50%; width:60%; height:260%; transform: rotate(25deg); background: linear-gradient( to right, rgba(255,255,255,.0), rgba(255,255,255,.12), rgba(255,255,255,.0) ); filter: blur(4px); }
+
+    /* Tabs */
+    .tabs { display:grid; grid-template-columns: 260px 1fr; gap:18px; }
+    .tablist { display:flex; flex-direction:column; gap:10px }
+    .tablist button { text-align:left; padding:.8rem 1rem; border-radius:12px; border:1px solid var(--border); background: var(--surface); color: var(--text); cursor:pointer }
+    .tablist button[aria-selected="true"]{ background: var(--grad-cyber); color:#071018; font-weight:700; border:none }
+    .tabpanel { border:1px solid var(--border); background: var(--surface); border-radius:16px; padding: 16px; min-height: 200px }
 
     /* Skills */
-    .skills { display: grid; gap: .8rem; }
-    @media (min-width: 900px) { .skills { grid-template-columns: repeat(3, 1fr); } }
-    .skill-box { padding: 1rem; }
-    .skill-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .cols { columns: 2; column-gap: 28px }
+    .pill { display:inline-block; margin: 6px 8px 0 0; padding:.35rem .6rem; border-radius:999px; border:1px solid var(--border); background: var(--bg-elev); font-size: 13px }
 
-    /* Certifications */
-    .certs { display: grid; gap: 1rem; }
-    @media (min-width: 980px) { .certs { grid-template-columns: repeat(3, 1fr); } }
-
-    /* Impact Snapshot (charts) */
-    .impact { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-    @media (min-width: 760px) { .impact { grid-template-columns: repeat(3, 1fr); } }
-    .donut { width: 140px; height: 140px; display: block; margin: .25rem auto; }
-    .impact .metric { text-align: center; }
-    .impact .metric b { font-size: 1.8rem; letter-spacing: .5px; }
-
-    /* Education */
-    .edu { display: grid; gap: 1rem; }
-    @media (min-width: 760px) { .edu { grid-template-columns: 1fr 1fr; } }
+    /* Charts */
+    .charts { display:grid; gap:18px; grid-template-columns: repeat(3, 1fr) }
+    .chart-card { padding:16px; border:1px solid var(--border); border-radius:16px; background: var(--surface) }
+    canvas { width:100%; height:220px; display:block }
 
     /* Contact */
-    .contact .cta { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-    @media (min-width: 760px) { .contact .cta { grid-template-columns: 1.2fr .8fr; } }
+    .contact { display:grid; grid-template-columns: 1.1fr .9fr; gap:18px }
+    form .row { display:grid; gap:12px; grid-template-columns: 1fr 1fr }
+    input, textarea { width:100%; padding:.9rem 1rem; border-radius:12px; border:1px solid var(--border); background: var(--bg-elev); color: var(--text); }
+    input:focus, textarea:focus { outline:none; box-shadow: var(--focus); border-color: transparent }
+    .note { font-size:13px; color: var(--muted) }
 
-    .pulse { position: relative; }
-    .pulse::before { content: ""; position: absolute; inset: -6px; border-radius: 20px; border: 2px solid rgba(212,175,55,.6); animation: pulse 2.2s ease-in-out infinite; }
-    @keyframes pulse { 0%{opacity: .45; transform: scale(.98);} 70%{opacity: 0; transform: scale(1.15);} 100%{opacity: 0;} }
+    footer { padding: 40px 0; border-top: 1px solid var(--border); color: var(--muted) }
 
-    /* Fade-ins on scroll */
-    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Utilities */
+    .row { display:flex; gap: 12px; flex-wrap:wrap }
+    .muted { color: var(--muted) }
+    .card-title { font-weight:700; font-size: 18px; margin: 0 0 6px }
+    .kpi { font-family: var(--mono); font-size: 13px; color: var(--subtle) }
 
-    /* Accessibility helpers */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-
-    /* Footer */
-    footer { padding: 2.2rem 0; color: var(--muted); text-align: center; }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero-grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .tabs { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr }
     }
+    @media (max-width: 640px){
+      nav ul { position:absolute; top: var(--nav-h); left:0; right:0; background: color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter: blur(8px);
+        border-bottom:1px solid var(--border); display:none; flex-direction:column; padding:10px }
+      nav ul.open { display:flex }
+      .menu-btn { display:block }
+      .grid { grid-template-columns: 1fr; }
+      .charts { grid-template-columns: 1fr }
+      .cols { columns: 1 }
+      .hero { padding-top: 56px }
+    }
+
+    /* Fade-in */
+    [data-animate] { opacity:0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease }
+    [data-animate].in { opacity:1; transform: translateY(0) }
   </style>
 </head>
 <body>
-  <!-- HEADER / NAVIGATION -->
-  <header role="banner" aria-label="Primary">
-    <div class="container nav">
-      <div class="brand" aria-label="Brand">
-        <span>Yogesh&nbsp;Gupta</span><span class="dot">•</span><small>SRE Leadership</small>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Main">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Yogesh Gupta</span>
       </div>
-
-      <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">☰</button>
-
-      <nav aria-label="Main">
-        <ul id="navMenu" class="menu" role="menubar">
-          <li role="none"><a role="menuitem" href="#hero">Home</a></li>
-          <li role="none"><a role="menuitem" href="#about">About</a></li>
-          <li role="none"><a role="menuitem" href="#experience">Experience</a></li>
-          <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
-          <li role="none"><a role="menuitem" href="#impact">Impact</a></li>
-          <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
-          <li role="none"><a role="menuitem" href="#certs">Certifications</a></li>
-          <li role="none"><a role="menuitem" href="#awards">Awards</a></li>
-          <li role="none"><a role="menuitem" href="#education">Education</a></li>
-          <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false" id="menuBtn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav>
+        <ul id="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#frameworks">Frameworks</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-
-      <!-- Theme toggle -->
-      <button id="themeToggle" class="btn" aria-pressed="false" aria-label="Toggle dark/light mode">🌗 Theme</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span>◐</span><span id="themeLabel">Dark</span>
+      </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="container">
-      <div class="glass reveal" style="padding:1.25rem">
-        <span class="badge">Strategic Site Reliability Engineering Manager</span>
-        <h1 class="title">Designing Sovereign Clouds & AI‑Ready Infrastructure</h1>
-        <p class="subtitle">Multi‑cloud architecture • DevOps/SRE automation • Telecom‑grade reliability • FinOps • Security‑by‑design</p>
-
-        <div class="actions">
-          <a class="btn gold pulse" href="#contact" aria-label="Jump to contact">Let’s Connect</a>
-          <a class="btn" href="https://drive.usercontent.google.com/download?id=1JbxAH1VCO7sqeICgKRD6GobQWF4nf3Hf&export=download&authuser=0" download>⬇️ Download Resume</a>
-          <a class="btn" href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener">in/ LinkedIn</a>
-        </div>
-
-        <div style="margin-top:1rem; color:var(--muted); font-size:.95rem; display:flex; flex-wrap:wrap; gap:.8rem">
-          <span class="pill">Dubai, UAE</span>
-          <span class="pill">+971 55 953 2001</span>
-          <span class="pill">guptay434@gmail.com</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="sec-head"><h2>About Me</h2><div class="line"></div></div>
-      <div class="grid cols-2">
-        <div class="glass reveal" style="padding:1rem">
-          <p><strong>Yogesh Gupta</strong> is a strategic SRE leader with a track record building <em>sovereign hyperscale cloud</em> platforms, AI‑ready datacenters, and regulated fintech infrastructure. He blends enterprise program leadership with deep hands‑on engineering across AWS, Azure, Oracle Cloud, VMware, and Nutanix.</p>
-          <p>Recent highlights include core leadership for the UAE’s first sovereign cloud (Oracle Alloy), deployment of the GCC’s first <strong>NVIDIA Supercluster</strong> (5+ MW), and the end‑to‑end launch of <strong>du Pay</strong>—all while improving reliability, accelerating delivery, and reducing cost.</p>
-          <p>Operating at the intersection of <strong>architecture, automation, and business outcomes</strong>, Yogesh partners with CXOs to turn ambitious cloud and AI strategies into measurable results.</p>
-        </div>
-        <div class="glass reveal" style="padding:1rem">
-          <ul>
-            <li>Leads cross‑functional teams of 40+ engineers</li>
-            <li>15–25% improvements across cost & reliability via FinOps and auto‑healing</li>
-            <li>$10M+ programs delivered (data center, cloud migration, network)</li>
-            <li>Security by default: WAF, SIEM, IAM, Zero Trust</li>
-            <li>Obsessed with operational excellence & continuous learning</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE / TIMELINE -->
-  <section id="experience">
-    <div class="container">
-      <div class="sec-head"><h2>Experience</h2><div class="line"></div></div>
-      <div class="timeline">
-        <!-- du (EITC) -->
-        <article class="tl-item reveal">
-          <div class="glass tl-card">
-            <h3>Site Reliability Engineering Manager — du (EITC)</h3>
-            <div class="tl-meta">Dubai, UAE • Mar 2024 – Present</div>
-            <p><strong>Scope:</strong> Led 40+ engineers; core team for UAE’s first sovereign cloud (Oracle Alloy); deployed first NVIDIA Supercluster in GCC; launched du Pay.</p>
-            <p><strong>Impact highlights:</strong></p>
-            <ul>
-              <li>Reduced downtime <strong>25%</strong> with auto‑healing (AWS ASG, VMSS, K8s HPA); accelerated resolution <strong>15%</strong> via Prometheus/Grafana/ELK.</li>
-              <li>Achieved <strong>15%</strong> cloud cost savings with FinOps (AWS Cost Explorer, Azure Cost Mgmt, KubeCost).</li>
-              <li>Delivered DR/HA with AWS Route 53, Multi‑AZ, cross‑region replication & Terraform‑driven runbooks.</li>
-              <li>Directed $10M programs (DC consolidation, cloud migrations, network upgrades) for 6% cost reduction, 15% reliability gain.</li>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero container" id="hero">
+      <div class="hero-grid">
+        <div class="glass" data-animate>
+          <div class="card" style="background:transparent; border:none; padding:28px">
+            <h1 class="title">Yogesh Gupta</h1>
+            <p class="subtitle">Strategic Site Reliability Engineering Manager — Multi‑Cloud Platforms • SRE/DevOps • AI‑driven Cloud Innovation</p>
+            <p class="tagline">UAE · <a href="tel:+971559532001" class="muted">+971 55 953 2001</a> · <a class="muted" href="mailto:guptay434@gmail.com">guptay434@gmail.com</a> · <a class="muted" href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener">LinkedIn</a></p>
+            <div class="cta-row">
+              <a class="btn primary" href="#projects">Explore Strategic Projects</a>
+              <a class="btn" href="https://drive.usercontent.google.com/download?id=1JbxAH1VCO7sqeICgKRD6GobQWF4nf3Hf&export=download&authuser=0" target="_blank" rel="noopener">⬇︎ Download Resume</a>
+            </div>
+            <ul class="bio-points" style="margin-top:18px">
+              <li>Delivered UAE’s first sovereign hyperscale cloud on Oracle Alloy (launched Jul 2025).</li>
+              <li>Program‑managed GCC’s first NVIDIA supercomputing platform (5+ MW) at Dubai Silicon Oasis.</li>
+              <li>Reliability architecture for <strong>du Pay</strong> (launched Apr 2024) — secure, scalable, multi‑AZ.</li>
+              <li>FinOps programs cutting cloud spend by up to 20%; DR/HA architectures reducing potential downtime by 50%.</li>
             </ul>
-            <div class="pill">Oracle Alloy</div><div class="pill">NVIDIA Supercluster</div><div class="pill">du Pay</div>
           </div>
-        </article>
+        </div>
+        <div class="glass" data-animate>
+          <div class="card" style="background:transparent; border:none">
+            <div class="row" style="justify-content:space-between; align-items:center">
+              <div>
+                <div class="card-title">Impact Snapshot</div>
+                <div class="kpi">Enterprise scale · Telco & Regulated · AI/HPC</div>
+              </div>
+            </div>
+            <div class="charts" style="margin-top:12px">
+              <div class="chart-card"><canvas id="chartCost" aria-label="Cost savings chart" role="img"></canvas></div>
+              <div class="chart-card"><canvas id="chartReliability" aria-label="Reliability improvements chart" role="img"></canvas></div>
+              <div class="chart-card"><canvas id="chartScale" aria-label="Scalability gains chart" role="img"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- HCL -->
-        <article class="tl-item reveal">
-          <div class="glass tl-card">
-            <h3>Site Reliability Engineer — HCL Technologies</h3>
-            <div class="tl-meta">Noida, India • Aug 2021 – Mar 2024</div>
-            <p>Modernized and migrated large‑scale workloads for enterprise clients (TotalEnergies, Unilever) across AWS, VMware, and Nutanix.</p>
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <header>
+          <h2>About Me</h2>
+          <p>Platform/SRE leader delivering sovereign cloud, AI/HPC, and digital payments at telco scale. I build dependable platforms across AWS, Azure, OCI, VMware, and Kubernetes—backed by strong observability, DR/HA, security, and cost discipline.</p>
+        </header>
+        <div class="row">
+          <div class="card" data-animate>
+            <div class="card-title">Operating Model</div>
+            <p>Outcome‑focused leadership across strategy ➜ architecture ➜ delivery ➜ run. I align SLOs and error budgets with business KPIs, codify operations with IaC and GitOps, and drive continuous improvement via blameless incident reviews.</p>
+          </div>
+          <div class="card" data-animate>
+            <div class="card-title">Core Themes</div>
+            <p><strong>Sovereign & Regulated Cloud</strong> (Oracle Alloy), <strong>AI‑ready data centers</strong>, <strong>multi‑cloud orchestration</strong>, <strong>FinOps</strong>, <strong>security‑by‑design</strong>, and <strong>developer/platform experience</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience">
+      <div class="container">
+        <header>
+          <h2>Experience</h2>
+          <p>15–50+ engineer teams · $10M+ programs · enterprise and public sector clients</p>
+        </header>
+        <div class="timeline">
+          <div class="tl-item" data-animate>
+            <div class="tl-card">
+              <div class="row" style="justify-content:space-between; align-items:center">
+                <div>
+                  <strong>du (EITC) — Dubai, UAE</strong> · Site Reliability Engineering Manager
+                </div>
+                <span class="muted">Mar 2024 – Present</span>
+              </div>
+              <div class="meta"><span>40–48 engineers</span><span>Agile/OKRs</span><span>Multi‑cloud</span></div>
+              <ul>
+                <li>Core team for <strong>du National Hypercloud</strong> on Oracle Alloy — launch Jul 2025; defined SLIs/SLOs, ops runbooks, billing constructs, marketplace offers.</li>
+                <li>Deployed first GCC NVIDIA supercomputing platform with AIHostingHub at DSO (5+ MW); led capacity readiness, liquid‑cooling intake, and acceptance.</li>
+                <li>Reliability architecture for <strong>du Pay</strong> (Apr 2024) — multi‑AZ, IaC, secrets/PKI hardening, synthetic + RUM monitoring.</li>
+                <li>Observability platform with Prometheus, Grafana, ELK; ~15% faster issue resolution; auto‑healing via K8s HPA/ASG/VMSS.</li>
+                <li>FinOps & infra programs: ~15–20% cloud cost reduction; DR/HA playbooks; data‑center consolidation & network upgrades with ~6% cost reduction, ~15% reliability uplift.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item" data-animate>
+            <div class="tl-card">
+              <div class="row" style="justify-content:space-between; align-items:center">
+                <div>
+                  <strong>HCL Technologies — Noida, India</strong> · Site Reliability Engineer
+                </div>
+                <span class="muted">Aug 2021 – Mar 2024</span>
+              </div>
+              <div class="meta"><span>50k+ CIs</span><span>Clients: TotalEnergies, Unilever</span></div>
+              <ul>
+                <li>Led modernization & migration across AWS, VMware, Nutanix; CI/CD with Jenkins, GitLab, Docker, K8s, Helm, Terraform — release times ↓ ~15%.</li>
+                <li>Defined SLO/SLI/MTTR; security posture uplift with FortiGate/AWS WAF/GuardDuty/SIEM — vulnerabilities ↓ ~25%.</li>
+                <li>Automated provisioning via Terraform/Ansible — deployments ↓ ~16%; managed EKS/AKS with Helm, RBAC, policies; Istio service mesh improved deployment frequency ~20%.</li>
+                <li>Backup & DR using Rubrik and Velero; cost optimization with autoscaling, RIs, spot — cloud spend ↓ ~20%.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item" data-animate>
+            <div class="tl-card">
+              <div class="row" style="justify-content:space-between; align-items:center">
+                <div>
+                  <strong>R3 Systems India Pvt. Ltd. — Nashik, India</strong> · IT System & Network Administrator
+                </div>
+                <span class="muted">Jun 2019 – Aug 2021</span>
+              </div>
+              <ul>
+                <li>Automation with PowerShell/Bash for logging, scaling, SSL, audits — manual effort ↓ ~80%.</li>
+                <li>24×7 NOC/SOC operations; NGFW (FortiGate/Palo Alto), IPS, VPN; 99.99% uptime.</li>
+                <li>VMware/Nutanix virtualization, vSAN; ESXi/vCenter installs, migrations, DR/replication.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategic Projects -->
+    <section id="projects">
+      <div class="container">
+        <header>
+          <h2>Strategic Projects</h2>
+          <p>High‑leverage programs aligned to executive priorities — reliability, scale, compliance, and cost.</p>
+        </header>
+        <div class="grid">
+          <!-- 1 -->
+          <article class="project" data-animate>
+            <div class="thumb" aria-hidden="true"></div>
+            <div class="reflection"></div>
+            <div class="content">
+              <div class="row" style="justify-content:space-between; align-items:center">
+                <h3 style="margin:0">du National Hypercloud (Oracle Alloy)</h3>
+                <span class="badge">Launch: Jul 2025</span>
+              </div>
+              <p>Co‑led productization and launch of UAE’s first sovereign hyperscale cloud on Oracle Alloy — SLIs/SLOs, ops runbooks, billing constructs, marketplace offers, and security baselines for regulated workloads.</p>
+            </div>
+          </article>
+          <!-- 2 -->
+          <article class="project" data-animate>
+            <div class="thumb" style="background: var(--grad-cyber)" aria-hidden="true"></div>
+            <div class="reflection"></div>
+            <div class="content">
+              <div class="row" style="justify-content:space-between; align-items:center">
+                <h3 style="margin:0">GCC NVIDIA Supercluster @ DSO</h3>
+                <span class="badge">Capacity: 5+ MW</span>
+              </div>
+              <p>Program‑managed first‑in‑region NVIDIA supercomputing platform with AIHostingHub at Dubai Silicon Oasis — capacity and cooling readiness, observability stack, acceptance criteria for LLM training/inference SLAs.</p>
+            </div>
+          </article>
+          <!-- 3 -->
+          <article class="project" data-animate>
+            <div class="thumb" style="background: var(--grad-sunrise)" aria-hidden="true"></div>
+            <div class="reflection"></div>
+            <div class="content">
+              <div class="row" style="justify-content:space-between; align-items:center">
+                <h3 style="margin:0">du Pay — Digital Wallet</h3>
+                <span class="badge">Go‑Live: Apr 2024</span>
+              </div>
+              <p>Designed and delivered reliability architecture — multi‑AZ design, Terraform‑driven IaC, secrets/PKI hardening, synthetic & real‑user monitoring — meeting aggressive launch timelines.</p>
+            </div>
+          </article>
+          <!-- 4 -->
+          <article class="project" data-animate>
+            <div class="thumb" style="background: var(--grad-emerald)" aria-hidden="true"></div>
+            <div class="reflection"></div>
+            <div class="content">
+              <div class="row" style="justify-content:space-between; align-items:center">
+                <h3 style="margin:0">Observability & Auto‑healing Platform</h3>
+                <span class="badge">MTTR: ~15% faster</span>
+              </div>
+              <p>Integrated Prometheus, Grafana, ELK; engineered auto‑healing via K8s HPA, AWS ASG, Azure VMSS — accelerating detection and remediation while improving service availability.</p>
+            </div>
+          </article>
+          <!-- 5 -->
+          <article class="project" data-animate>
+            <div class="thumb" style="background: conic-gradient(from 180deg, #8a7cff, #2dd4ff, #2de39a)" aria-hidden="true"></div>
+            <div class="reflection"></div>
+            <div class="content">
+              <div class="row" style="justify-content:space-between; align-items:center">
+                <h3 style="margin:0">DR/HA & FinOps Programs</h3>
+                <span class="badge">Cost ↓ up to 20%</span>
+              </div>
+              <p>Route 53, RDS Multi‑AZ, cross‑region replication, automated failover; KubeCost/AWS/Azure cost analytics and rightsizing — cutting spend while improving continuity.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frameworks & Strategic Thinking -->
+    <section id="frameworks">
+      <div class="container">
+        <header>
+          <h2>Frameworks & Strategic Thinking</h2>
+          <p>Executable playbooks used to scale platforms and reliability.</p>
+        </header>
+        <div class="tabs" role="tablist" aria-label="Strategy tabs">
+          <div class="tablist">
+            <button role="tab" aria-selected="true" aria-controls="tab1" id="t1">DR/HA Patterns</button>
+            <button role="tab" aria-selected="false" aria-controls="tab2" id="t2">FinOps Strategy</button>
+            <button role="tab" aria-selected="false" aria-controls="tab3" id="t3">AI‑Driven Observability</button>
+            <button role="tab" aria-selected="false" aria-controls="tab4" id="t4">Multi‑Cloud Orchestration</button>
+            <button role="tab" aria-selected="false" aria-controls="tab5" id="t5">SRE Metrics</button>
+          </div>
+          <div>
+            <div class="tabpanel" id="tab1" role="tabpanel" aria-labelledby="t1">
+              <ul>
+                <li>Active‑active / active‑passive with automated failover; runbooks & game‑days.</li>
+                <li>DNS‑based steering (Route 53), RDS Multi‑AZ, cross‑region replication, infra as code for reproducibility.</li>
+                <li>Error budget policy to gate risky changes during brownout conditions.</li>
+              </ul>
+            </div>
+            <div class="tabpanel" id="tab2" role="tabpanel" aria-labelledby="t2" hidden>
+              <ul>
+                <li>Rightsizing, autoscaling policies, RI/SP coverage; anomaly detection; showback/chargeback.</li>
+                <li>Unit economics dashboards tied to services & SLO priorities.</li>
+                <li>KubeCost + native cloud analyzers to drive up to ~20% savings without performance regressions.</li>
+              </ul>
+            </div>
+            <div class="tabpanel" id="tab3" role="tabpanel" aria-labelledby="t3" hidden>
+              <ul>
+                <li>Prometheus/Grafana + ELK; golden signals; multi‑burn‑rate alerts; SLO dashboards.</li>
+                <li>Proactive detection with anomaly models; synthetic + RUM coverage for critical journeys.</li>
+                <li>Blameless incident reviews feeding backlog automation and reliability roadmaps.</li>
+              </ul>
+            </div>
+            <div class="tabpanel" id="tab4" role="tabpanel" aria-labelledby="t4" hidden>
+              <ul>
+                <li>Common IaC modules (Terraform) across AWS/Azure/OCI; GitOps pipelines; policy as code.</li>
+                <li>Service mesh for zero‑trust east‑west; standardized SLAs & catalogs across clouds.</li>
+                <li>Vendor‑neutral abstractions to avoid lock‑in while leveraging native strengths.</li>
+              </ul>
+            </div>
+            <div class="tabpanel" id="tab5" role="tabpanel" aria-labelledby="t5" hidden>
+              <ul>
+                <li>SLIs: latency, availability, saturation, errors; MTTR/MTBF tracked per service.</li>
+                <li>Error budgets linked to deploy velocity; feature flags and canary/blue‑green gating.</li>
+                <li>Leadership reviews tie reliability debt to quarterly planning.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Tools -->
+    <section id="skills">
+      <div class="container">
+        <header>
+          <h2>Skills & Tools</h2>
+          <p>Cloud & K8s · SRE/DevOps · Infra/Virtualization · Security · Observability · FinOps · Data Center/HPC</p>
+        </header>
+        <div class="card" data-animate>
+          <div class="card-title">Cloud Platforms & Orchestration</div>
+          <div class="cols">
+            <p><strong>AWS</strong>: CloudFormation, EC2, VPC, S3, Lambda, EKS, RDS</p>
+            <p><strong>Azure</strong>: AKS, VM, Storage, Monitor</p>
+            <p><strong>Oracle Cloud</strong>: Autonomous DB, Compute; <strong>Oracle Alloy</strong></p>
+            <p><strong>VMware/Nutanix</strong>; <strong>Kubernetes</strong> (EKS/AKS, Helm, RBAC, policies); <strong>Istio</strong></p>
+          </div>
+        </div>
+        <div class="card" data-animate>
+          <div class="card-title">SRE & DevOps</div>
+          <div class="cols">
+            <p>CI/CD: Jenkins, GitLab CI/CD · IaC: Terraform, Ansible · GitOps flows</p>
+            <p>Release strategies: canary/blue‑green · Auto‑healing (HPA/ASG/VMSS)</p>
+            <p>SLI/SLO/MTTR frameworks · Incident response & postmortems</p>
+          </div>
+        </div>
+        <div class="card" data-animate>
+          <div class="card-title">Security & Networking</div>
+          <div class="cols">
+            <p>Firewalls: FortiGate, Palo Alto · WAF, GuardDuty</p>
+            <p>Zero Trust, IAM/RBAC, SIEM (Splunk, Sentinel)</p>
+            <p>Load balancers (F5), DNS, VPN</p>
+          </div>
+        </div>
+        <div class="card" data-animate>
+          <div class="card-title">Observability & FinOps</div>
+          <div class="cols">
+            <p>Prometheus, Grafana, ELK, CloudWatch, Azure Monitor</p>
+            <p>KubeCost, AWS/Azure Cost Management</p>
+            <p>Outcomes: cost ↓ ~15–20%, MTTR ↓, deployment frequency ↑</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certs">
+      <div class="container">
+        <header>
+          <h2>Certifications</h2>
+          <p>Categorized for quick executive scanning.</p>
+        </header>
+        <div class="grid">
+          <div class="card" data-animate>
+            <div class="card-title">Cloud Architect</div>
             <ul>
-              <li>Improved application scalability <strong>21%</strong>; trimmed infra costs <strong>6%</strong> through optimization and IaC.</li>
-              <li>Cut release times <strong>15%</strong> with CI/CD (Jenkins, GitLab CI/CD, Helm, Terraform, Docker, K8s).</li>
-              <li>Hardened security with WAF, GuardDuty, SIEM; enforced SLO/SLI and MTTR to strengthen reliability culture.</li>
-              <li>Reduced cloud spend <strong>20%</strong> via autoscaling, reserved & spot instances; enhanced DR with Rubrik, Velero.</li>
+              <li>AWS Certified Solutions Architect – Associate (SAA‑C03)</li>
+              <li>Google Cloud Certified Professional Cloud Architect (GCP‑PCA)</li>
+              <li>Oracle Cloud Infrastructure Certified Cloud Architect Professional (1Z0‑997‑23)</li>
+              <li>Microsoft Certified: Azure Fundamentals (AZ‑900)</li>
             </ul>
-            <div class="pill">IaC</div><div class="pill">Kubernetes</div><div class="pill">FinOps</div>
           </div>
-        </article>
-
-        <!-- R3 Systems -->
-        <article class="tl-item reveal">
-          <div class="glass tl-card">
-            <h3>IT System & Network Administrator — R3 Systems India</h3>
-            <div class="tl-meta">Nashik, India • Jun 2019 – Aug 2021</div>
-            <p>Automated infrastructure operations and led 24/7 NOC/SOC to sustain 99.99% uptime for enterprise environments.</p>
+          <div class="card" data-animate>
+            <div class="card-title">Security, Data & Apps</div>
             <ul>
-              <li>Cut manual effort <strong>80%</strong> with PowerShell & Bash automation (logging, scaling, SSL, audits).</li>
-              <li>Deployed NGFWs (FortiGate, Palo Alto), VPNs, IPS; strengthened DR and patching (VMware Update Manager).</li>
+              <li>Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC‑900)</li>
+              <li>Microsoft Certified: Azure Data Fundamentals (DP‑900)</li>
+              <li>Oracle Fusion Cloud Applications ERP Associate (1Z0‑1160‑1)</li>
             </ul>
-            <div class="pill">Automation</div><div class="pill">Security</div><div class="pill">VMware/Nutanix</div>
           </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- STRATEGIC PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <div class="sec-head"><h2>Strategic Projects</h2><div class="line"></div></div>
-      <div class="cards">
-        <article class="glass card reveal" tabindex="0" aria-label="Oracle Alloy sovereign cloud">
-          <div class="shine" aria-hidden="true"></div>
-          <h3>UAE Sovereign Hyperscale Cloud — Oracle Alloy</h3>
-          <p>Core team architecting the UAE’s first sovereign cloud & AI platform meeting stringent data residency & security requirements. Custom marketplace, two‑tier billing, and du‑managed services.</p>
-          <ul>
-            <li>Launch target: <strong>July 2025</strong></li>
-            <li>Outcome: local partner ecosystem enablement</li>
-          </ul>
-        </article>
-
-        <article class="glass card reveal" tabindex="0" aria-label="NVIDIA Supercluster">
-          <div class="shine" aria-hidden="true"></div>
-          <h3>GCC’s First NVIDIA Supercluster</h3>
-          <p>Deployed in partnership with AIHostingHub at Dubai Nautilus (DSO) with 5+ MW power capacity; optimized for training large‑scale models with sustainability benchmarks.</p>
-          <ul>
-            <li>Showcased at <strong>GITEX 2024</strong></li>
-            <li>AI‑ready data center architecture</li>
-          </ul>
-        </article>
-
-        <article class="glass card reveal" tabindex="0" aria-label="du Pay digital wallet">
-          <div class="shine" aria-hidden="true"></div>
-          <h3>du Pay — Digital Wallet</h3>
-          <p>End‑to‑end SRE for secure, highly available fintech platform; defined infra requirements, security hardening, and GTM support to exceed early adoption targets.</p>
-          <ul>
-            <li>Launched: <strong>April 2024</strong></li>
-            <li>Zero‑downtime release engineering</li>
-          </ul>
-        </article>
-
-        <article class="glass card reveal" tabindex="0" aria-label="DR and HA patterns">
-          <div class="shine" aria-hidden="true"></div>
-          <h3>Resilience by Design — DR & HA Patterns</h3>
-          <p>Multi‑AZ, cross‑region replication, and automated failover with IaC and runbooks; measurable reductions in RTO/RPO.</p>
-          <ul>
-            <li>Potential downtime cut by <strong>50%</strong></li>
-            <li>Zero data loss during failovers</li>
-          </ul>
-        </article>
-
-        <article class="glass card reveal" tabindex="0" aria-label="FinOps optimization">
-          <div class="shine" aria-hidden="true"></div>
-          <h3>FinOps @ Scale</h3>
-          <p>Programmatic cost governance across AWS & Azure using KubeCost and native billing analytics; right‑sizing, scheduling, and commitment planning.</p>
-          <ul>
-            <li>Cloud spending ↓ <strong>15–20%</strong></li>
-            <li>Capacity without overprovisioning</li>
-          </ul>
-        </article>
-
-        <article class="glass card reveal" tabindex="0" aria-label="5G Edge & AI">
-          <div class="shine" aria-hidden="true"></div>
-          <h3>5G Edge • AI Automation</h3>
-          <p>Evaluated network slicing, MEC, and AI‑driven ops to enhance telecom reliability and unlock new revenue streams.</p>
-          <ul>
-            <li>Cross‑functional strategy with CXOs</li>
-            <li>AI‑powered observability</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- IMPACT SNAPSHOT (CHARTS) -->
-  <section id="impact">
-    <div class="container">
-      <div class="sec-head"><h2>Impact Snapshot</h2><div class="line"></div></div>
-      <div class="impact">
-        <div class="glass reveal" style="padding:1rem">
-          <div class="metric" aria-live="polite">
-            <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Cost savings 20%">
-              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,.15)" stroke-width="3"></circle>
-              <circle id="donut-cost" cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradCost)" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
-              <defs>
-                <linearGradient id="gradCost" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="var(--accent)"/>
-                  <stop offset="100%" stop-color="var(--accent-2)"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <b>20%</b>
-            <div class="muted">Cloud spend reduction</div>
+          <div class="card" data-animate>
+            <div class="card-title">SRE & Platforms</div>
+            <ul>
+              <li>HCL Technologies Certified Site Reliability Engineer (SRE)</li>
+              <li>Nutanix Certified Professional – Multicloud Infrastructure (NCP‑MCI)</li>
+              <li>ManageEngine Applications Manager (training/certification)</li>
+            </ul>
           </div>
-        </div>
-
-        <div class="glass reveal" style="padding:1rem">
-          <div class="metric" aria-live="polite">
-            <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Reliability improvement 25%">
-              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,.15)" stroke-width="3"></circle>
-              <circle id="donut-rel" cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradRel)" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
-              <defs>
-                <linearGradient id="gradRel" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="var(--accent-2)"/>
-                  <stop offset="100%" stop-color="var(--accent)"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <b>25%</b>
-            <div class="muted">Downtime reduction</div>
-          </div>
-        </div>
-
-        <div class="glass reveal" style="padding:1rem">
-          <div class="metric" aria-live="polite">
-            <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Scalability improvement 21%">
-              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,.15)" stroke-width="3"></circle>
-              <circle id="donut-scale" cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradScale)" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
-              <defs>
-                <linearGradient id="gradScale" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="var(--accent)"/>
-                  <stop offset="100%" stop-color="var(--accent-2)"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <b>21%</b>
-            <div class="muted">Application scalability ↑</div>
+          <div class="card" data-animate>
+            <div class="card-title">Coursework</div>
+            <ul>
+              <li>Udemy — Product Management</li>
+              <li>Udemy — Fundamentals of PCI DSS v4.0</li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS & TOOLS -->
-  <section id="skills">
-    <div class="container">
-      <div class="sec-head"><h2>Skills & Tools</h2><div class="line"></div></div>
-      <div class="skills">
-        <div class="glass skill-box reveal">
-          <h3>Cloud Platforms</h3>
-          <div class="skill-list">
-            <span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">GCP</span><span class="pill">Oracle Cloud</span><span class="pill">VMware</span><span class="pill">Nutanix</span>
+    <!-- Awards -->
+    <section id="awards">
+      <div class="container">
+        <header>
+          <h2>Honors & Awards</h2>
+          <p>Leadership and innovation recognition across delivery and operations.</p>
+        </header>
+        <div class="grid">
+          <div class="card" data-animate>
+            <div class="card-title">Leadership Recognition — du (2024)</div>
+            <p>Initial design & architecture for the GCC’s first NVIDIA Supercluster; cross‑functional leadership and CXO‑level stakeholder management; showcased at GITEX 2024.</p>
           </div>
-        </div>
-        <div class="glass skill-box reveal">
-          <h3>DevOps & SRE</h3>
-          <div class="skill-list">
-            <span class="pill">Kubernetes (EKS/AKS/GKE)</span><span class="pill">Helm</span><span class="pill">Docker</span><span class="pill">Terraform</span><span class="pill">Ansible</span><span class="pill">Jenkins</span><span class="pill">GitLab CI/CD</span><span class="pill">SLO/SLI • MTTR</span>
+          <div class="card" data-animate>
+            <div class="card-title">MVP Employee — du</div>
+            <p>Established and managed restructured operations team; service delivery for 50+ customers including major Dubai government entities.</p>
           </div>
-        </div>
-        <div class="glass skill-box reveal">
-          <h3>Security & Networking</h3>
-          <div class="skill-list">
-            <span class="pill">Zero Trust</span><span class="pill">IAM</span><span class="pill">SIEM (Splunk/Sentinel)</span><span class="pill">WAF • GuardDuty</span><span class="pill">FortiGate</span><span class="pill">Palo Alto</span><span class="pill">F5</span>
+          <div class="card" data-animate>
+            <div class="card-title">Leadership Award — HCL</div>
+            <p>Independently led and closed 29+ projects; strong program execution and client outcomes.</p>
           </div>
-        </div>
-        <div class="glass skill-box reveal">
-          <h3>Observability</h3>
-          <div class="skill-list">
-            <span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">ELK</span><span class="pill">CloudWatch</span><span class="pill">Azure Monitor</span>
-          </div>
-        </div>
-        <div class="glass skill-box reveal">
-          <h3>Virtualization & DR</h3>
-          <div class="skill-list">
-            <span class="pill">vSphere</span><span class="pill">vSAN</span><span class="pill">NSX</span><span class="pill">Hyper‑V</span><span class="pill">Rubrik</span><span class="pill">Velero</span>
-          </div>
-        </div>
-        <div class="glass skill-box reveal">
-          <h3>FinOps & Leadership</h3>
-          <div class="skill-list">
-            <span class="pill">AWS Cost Explorer</span><span class="pill">Azure Cost Mgmt</span><span class="pill">KubeCost</span><span class="pill">ITIL</span><span class="pill">Stakeholder Mgmt</span><span class="pill">Program Delivery ($10M+)</span>
+          <div class="card" data-animate>
+            <div class="card-title">Excellence Award — HCL</div>
+            <p>Replaced manual processes with advanced automation — ~30% manual effort reduction and ~$50k annual savings.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CERTIFICATIONS -->
-  <section id="certs">
-    <div class="container">
-      <div class="sec-head"><h2>Certifications</h2><div class="line"></div></div>
-      <div class="certs">
-        <div class="glass reveal" style="padding:1rem">
-          <h3>Cloud Architecture</h3>
-          <ul>
-            <li>AWS Certified Solutions Architect — Associate (SAA‑C03)</li>
-            <li>Google Cloud Professional Cloud Architect (GCP‑PCA)</li>
-            <li>Oracle Cloud Infrastructure Certified Cloud Architect Professional (1Z0‑997‑23)</li>
-            <li>Nutanix Certified Professional — Multicloud Infrastructure (NCP‑MCI)</li>
-          </ul>
-        </div>
-        <div class="glass reveal" style="padding:1rem">
-          <h3>Microsoft Azure</h3>
-          <ul>
-            <li>Azure Fundamentals (AZ‑900)</li>
-            <li>Azure Security Fundamentals (SC‑900)</li>
-            <li>Azure Data Fundamentals (DP‑900)</li>
-          </ul>
-        </div>
-        <div class="glass reveal" style="padding:1rem">
-          <h3>Security, SRE & Compliance</h3>
-          <ul>
-            <li>HCL Technologies Certified Site Reliability Engineer (SRE)</li>
-            <li>ManageEngine Applications Performance Manager (APM)</li>
-            <li>Oracle Fusion Cloud Applications ERP Associate (1Z0‑1160‑1)</li>
-            <li>Udemy — Product Management</li>
-            <li>Udemy — Fundamentals of PCI DSS v4.0</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AWARDS -->
-  <section id="awards">
-    <div class="container">
-      <div class="sec-head"><h2>Honors & Awards</h2><div class="line"></div></div>
-      <div class="grid cols-3">
-        <div class="glass reveal" style="padding:1rem">
-          <h3>Leadership Recognition — du (2024)</h3>
-          <p>Architected GCC’s first NVIDIA Supercluster; cross‑vendor leadership; showcased at GITEX 2024.</p>
-        </div>
-        <div class="glass reveal" style="padding:1rem">
-          <h3>MVP — du</h3>
-          <p>Established & managed a restructured operations team serving 50+ customers, incl. Dubai government entities.</p>
-        </div>
-        <div class="glass reveal" style="padding:1rem">
-          <h3>Leadership & Excellence — HCL</h3>
-          <p>Delivered 29+ projects; introduced automation that cut manual work 30% and saved $50K annually.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="container">
-      <div class="sec-head"><h2>Education & Continuous Learning</h2><div class="line"></div></div>
-      <div class="edu">
-        <div class="glass reveal" style="padding:1rem">
-          <h3>Bachelor of Engineering — University of Pune</h3>
-          <p>Graduated 2019 • Percentage: 75.33%</p>
-        </div>
-        <div class="glass reveal" style="padding:1rem">
-          <h3>Diploma — KVN Naik Polytechnic</h3>
-          <p>Completed 2016 • Percentage: 83.82%</p>
-        </div>
-      </div>
-      <div class="glass reveal" style="padding:1rem; margin-top:1rem">
-        <h3>Learning Approach</h3>
-        <p>Curates a <em>continuous learning palette</em> spanning cloud architecture, AI infrastructure, security, and FinOps. Applies new patterns through pilots, measures outcomes, and scales wins across the organization.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="sec-head"><h2>Contact</h2><div class="line"></div></div>
-      <div class="cta">
-        <div class="glass reveal" style="padding:1rem">
-          <h3>Let’s build resilient, AI‑ready platforms.</h3>
-          <p><strong>Email:</strong> <a href="mailto:guptay434@gmail.com">guptay434@gmail.com</a><br/>
-          <strong>Phone:</strong> <a href="tel:+971559532001">+971 55 953 2001</a><br/>
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener">linkedin.com/in/mdyogesh</a></p>
-          <div style="display:flex; gap:.8rem; flex-wrap:wrap; margin-top:.6rem">
-            <a class="btn gold" href="https://drive.usercontent.google.com/download?id=1JbxAH1VCO7sqeICgKRD6GobQWF4nf3Hf&export=download&authuser=0" download>📄 Download Resume Here</a>
-            <a class="btn" href="#hero">↑ Back to Top</a>
+    <!-- Education -->
+    <section id="education">
+      <div class="container">
+        <header>
+          <h2>Education & Continuous Learning</h2>
+          <p>Engineering fundamentals with a growth mindset for emerging tech.</p>
+        </header>
+        <div class="grid">
+          <div class="card" data-animate>
+            <div class="card-title">Bachelor of Engineering</div>
+            <p>University of Pune · 06/2016 – 07/2019 · <strong>75.33%</strong></p>
           </div>
-        </div>
-        <div class="glass reveal pulse" style="padding:1rem; display:grid; place-items:center; min-height:160px">
-          <div style="text-align:center">
-            <div style="font-size:2.2rem;">✨</div>
-            <p style="margin:.4rem 0 0; color:var(--muted)">Tap the <strong>🌗 Theme</strong> button to explore dark & light experiences with gold accents.</p>
+          <div class="card" data-animate>
+            <div class="card-title">Diploma</div>
+            <p>KVN Naik Polytechnic · 06/2013 – 06/2016 · <strong>83.82%</strong></p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <header>
+          <h2>Contact</h2>
+          <p>Open to strategic SRE/Platform leadership, sovereign cloud, and AI/HPC programs.</p>
+        </header>
+        <div class="contact">
+          <div class="card" data-animate>
+            <div class="card-title">Reach Out</div>
+            <p>
+              <strong>Email:</strong> <a href="mailto:guptay434@gmail.com">guptay434@gmail.com</a><br/>
+              <strong>Phone:</strong> <a href="tel:+971559532001">+971 55 953 2001</a><br/>
+              <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mdyogesh/" target="_blank" rel="noopener">linkedin.com/in/mdyogesh</a>
+            </p>
+            <p><a class="btn" href="https://drive.usercontent.google.com/download?id=1JbxAH1VCO7sqeICgKRD6GobQWF4nf3Hf&export=download&authuser=0" target="_blank" rel="noopener">⬇︎ Download Resume Here</a></p>
+            <p class="note">Your message will use your mail client if direct send isn’t available.</p>
+          </div>
+          <div class="card" data-animate>
+            <div class="card-title">Send a Message</div>
+            <form id="contactForm" novalidate>
+              <div class="row">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@company.com" required />
+                </div>
+              </div>
+              <div style="margin-top:12px">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="How can Yogesh help?" required></textarea>
+              </div>
+              <div class="row" style="margin-top:12px; align-items:center; justify-content:space-between">
+                <button type="submit" class="btn primary">Send</button>
+                <span class="note" id="formNote" role="status" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> Yogesh Gupta • SRE Leadership Portfolio</div>
+    <div class="container">
+      <div class="row" style="justify-content:space-between; align-items:center">
+        <div>© <span id="year"></span> Yogesh Gupta · All rights reserved.</div>
+        <div class="row">
+          <a class="muted" href="#hero">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script>
-    // ====== Accessibility-friendly menu toggle ======
-    const menuBtn = document.querySelector('.menu-btn');
-    const menu = document.getElementById('navMenu');
-
-    menuBtn.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Close menu on nav click (mobile)
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      if (menu.classList.contains('open')) { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }
-    }));
-
-    // ====== Dark / Light theme toggle with persistence ======
+    // ==============================
+    // Theme persistence & toggle
+    // ==============================
     const root = document.documentElement;
-    const toggleBtn = document.getElementById('themeToggle');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
 
-    const setTheme = (mode) => {
-      if (mode === 'light') root.classList.add('light');
-      else root.classList.remove('light');
-      localStorage.setItem('theme', mode);
-      toggleBtn.textContent = root.classList.contains('light') ? '🌙 Dark' : '🌞 Light';
-      toggleBtn.setAttribute('aria-pressed', root.classList.contains('light'));
-    };
-
-    // Respect saved preference or system preference
-    const saved = localStorage.getItem('theme');
-    if (saved) setTheme(saved);
-    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) setTheme('light');
-
-    toggleBtn.addEventListener('click', () => {
-      const toLight = !root.classList.contains('light');
-      setTheme(toLight ? 'light' : 'dark');
-    });
-
-    // ====== Reveal on scroll (fade-in) ======
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ====== Donut charts animation ======
-    function animateDonut(el, pct) {
-      const dash = `${pct} ${100 - pct}`;
-      el.setAttribute('stroke-dasharray', dash);
+    function setTheme(mode){
+      if(mode === 'light'){ document.documentElement.setAttribute('data-theme','light'); themeLabel.textContent = 'Light'; }
+      else { document.documentElement.setAttribute('data-theme','dark'); themeLabel.textContent = 'Dark'; }
+      localStorage.setItem('yg-theme', mode);
     }
 
-    // Trigger when impact section in view
-    const impact = document.getElementById('impact');
-    const donuts = {
-      cost: document.getElementById('donut-cost'),
-      rel: document.getElementById('donut-rel'),
-      scale: document.getElementById('donut-scale')
-    };
+    (function initTheme(){
+      const stored = localStorage.getItem('yg-theme');
+      if(stored){ setTheme(stored); }
+      else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches){ setTheme('light'); }
+      else { setTheme('dark'); }
+    })();
 
-    const impactObs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateDonut(donuts.cost, 20);   // 20% cost savings
-          animateDonut(donuts.rel, 25);    // 25% downtime reduction
-          animateDonut(donuts.scale, 21);  // 21% scalability increase
-          impactObs.disconnect();
-        }
-      })
-    }, { threshold: 0.3 });
-    impactObs.observe(impact);
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      setTheme(current === 'light' ? 'dark' : 'light');
+    });
 
-    // ====== Current year ======
+    // ==============================
+    // Mobile Menu
+    // ==============================
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>{
+      menu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // ==============================
+    // Fade-in on view
+    // ==============================
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el=> io.observe(el));
+
+    // ==============================
+    // Tabs (ARIA)
+    // ==============================
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    tabs.forEach(t => t.addEventListener('click', ()=>{
+      tabs.forEach(x=>{ x.setAttribute('aria-selected','false'); document.getElementById(x.getAttribute('aria-controls')).hidden = true; });
+      t.setAttribute('aria-selected','true');
+      document.getElementById(t.getAttribute('aria-controls')).hidden = false;
+    }));
+
+    // ==============================
+    // Charts (vanilla Canvas)
+    // Data derived from resume bullets only
+    // ==============================
+    function drawBarChart(canvasId, series, labels, suffix){
+      const c = document.getElementById(canvasId); const ctx = c.getContext('2d');
+      const DPR = window.devicePixelRatio || 1; c.width = c.clientWidth*DPR; c.height = c.clientHeight*DPR; ctx.scale(DPR,DPR);
+      const w = c.clientWidth, h = c.clientHeight, pad = 24, bw = (w - pad*2)/series.length - 14;
+      ctx.clearRect(0,0,w,h);
+      // axes
+      ctx.globalAlpha = .8; ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--border'); ctx.beginPath();
+      ctx.moveTo(pad, h - pad); ctx.lineTo(w - pad, h - pad); ctx.stroke();
+      // bars with animation
+      const max = Math.max(...series) || 1; let t = 0; const dur = 800; const start = performance.now();
+      function anim(now){
+        t = Math.min(1, (now - start)/dur);
+        ctx.clearRect(0,0,w,h);
+        ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--border'); ctx.beginPath(); ctx.moveTo(pad, h - pad); ctx.lineTo(w - pad, h - pad); ctx.stroke();
+        series.forEach((v,i)=>{
+          const x = pad + i*(bw+14) + 7; const target = (v/max)*(h - pad*2); const y = h - pad - target*t;
+          // gradient fill matching theme
+          const g = ctx.createLinearGradient(0,0,0,h);
+          const neon = getComputedStyle(document.documentElement).getPropertyValue('--neon').trim();
+          const vio = getComputedStyle(document.documentElement).getPropertyValue('--violet').trim();
+          g.addColorStop(0, neon); g.addColorStop(1, vio);
+          ctx.fillStyle = g; ctx.shadowColor = neon; ctx.shadowBlur = 10; ctx.fillRect(x, y, bw, target*t);
+          ctx.shadowBlur = 0; ctx.globalAlpha = .85; ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+          ctx.font = '12px ' + getComputedStyle(document.body).fontFamily; ctx.textAlign = 'center';
+          ctx.fillText(labels[i], x + bw/2, h - pad + 14);
+          ctx.fillText(series[i] + suffix, x + bw/2, y - 6);
+          ctx.globalAlpha = 1;
+        });
+        if(t < 1) requestAnimationFrame(anim);
+      }
+      requestAnimationFrame(anim);
+    }
+
+    // Charts: cost savings, reliability improvement, scalability gains
+    drawBarChart('chartCost', [20,15,6], ['HCL','du','DC'], '%');
+    drawBarChart('chartReliability', [50,15], ['DR Downtime','MTTR'], '%');
+    drawBarChart('chartScale', [20,15], ['Deploy Freq','Release Time'], '%');
+
+    // ==============================
+    // Contact form validation + mailto fallback
+    // ==============================
+    const form = document.getElementById('contactForm');
+    const note = document.getElementById('formNote');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if(!name || !email || !message){ note.textContent = 'Please complete all fields.'; note.style.color = 'var(--danger)'; return; }
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if(!emailOk){ note.textContent = 'Enter a valid email address.'; note.style.color = 'var(--danger)'; return; }
+      note.textContent = 'Opening your email client…'; note.style.color = 'var(--muted)';
+      const subject = encodeURIComponent('Inquiry for Yogesh Gupta');
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location.href = `mailto:guptay434@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
